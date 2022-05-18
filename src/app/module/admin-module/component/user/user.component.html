@@ -5,143 +5,123 @@
                 <table class="table table-hover manage-candidates-top mb-0">
                     <thead>
                         <tr>
-                            <th>Gardeners</th>
-                            <th>Experience</th>
-                            <th>Joining Date</th>
+                            <th>User</th>
+                            <th>Join Date</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="candidates-list">
+                        <tr *ngFor="let user of userList" class="candidates-list">
                             <td class="title">
                                 <div class="thumb">
-                                    <img class="img-fluid" src="images/25.jpg" alt="">
+                                    <img (click)="viewProfile(user)" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter" class="img-fluid" src="{{user.userImage}}" alt="">
                                 </div>
                                 <div class="candidate-list-details">
                                     <div class="candidate-list-info">
                                         <div class="candidate-list-title">
-                                            <h5 class="mb-0"><a href="#">Ramnath Mali</a></h5>
+                                            <h5 (click)="viewProfile(user)" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter" class="mb-0">
+                                                <a>{{user.userName}}</a>
+                                            </h5>
                                         </div>
                                         <div class="candidate-list-option">
                                             <ul class="list-unstyled">
-                                                <li><i class="fa fa-mobile" aria-hidden="true"></i> 9165937994</li>
-                                                <li><i class="fa fa-map-marker" aria-hidden="true"></i> Purani Gali, neel Gao 63990</li>
+                                                <li><i class="fa fa-mobile" aria-hidden="true"></i> {{user.userMobile}}</li>
+                                                <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{user.userAddress}}</li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </td>
-                            <td class="candidate-list-favourite-time text-center">
-
-                                <span class="candidate-list-time order-1">2 years</span>
-                            </td>
-
                             <td>
-                                <span class="candidate-list-time order-2">25 Feb,2022</span>
+                                <span class="candidate-list-time order-2">{{user.userJoinDate | date}}</span>
                             </td>
                             <td>
-                                <a href="#" class="text-success" data-toggle="tooltip" title="" data-original-title="unblock"><i
-                    class="fa fa-unlock" aria-hidden="true"></i>
+                                <a style="cursor: pointer;" (click)="blockUser(user._id)" *ngIf="user.isBlock == false" class="text-success" data-toggle="tooltip" title="" data-original-title="unblock"><i
+                    style="font-size: 30px;" class="fa fa-unlock" aria-hidden="true"></i>
                 </a>
-                            </td>
-                        </tr>
-                        <tr class="candidates-list">
-                            <td class="title">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="images/25.jpg" alt="">
-                                </div>
-                                <div class="candidate-list-details">
-                                    <div class="candidate-list-info">
-                                        <div class="candidate-list-title">
-                                            <h5 class="mb-0"><a href="#">Ramnath Mali</a></h5>
-                                        </div>
-                                        <div class="candidate-list-option">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fa fa-mobile" aria-hidden="true"></i> 9165937994</li>
-                                                <li><i class="fa fa-map-marker" aria-hidden="true"></i> Purani Gali, neel Gao 63990</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="candidate-list-favourite-time text-center">
-                                <span class="candidate-list-time order-1">2 years</span>
-                            </td>
-                            <td>
-                                <span class="candidate-list-time order-2">25 Feb,2022</span>
-                            </td>
-                            <td>
-                                <a href="#" class="text-success" data-toggle="tooltip" title="" data-original-title="unblock"><i
-                    class="fa fa-unlock" aria-hidden="true"></i>
-                </a>
-                            </td>
-                        </tr>
 
-                        <tr class="candidates-list">
-                            <td class="title">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="images/25.jpg" alt="">
-                                </div>
-                                <div class="candidate-list-details">
-                                    <div class="candidate-list-info">
-                                        <div class="candidate-list-title">
-                                            <h5 class="mb-0"><a href="#">Ramnath Mali</a></h5>
-                                        </div>
-                                        <div class="candidate-list-option">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fa fa-mobile" aria-hidden="true"></i> 9165937994</li>
-                                                <li><i class="fa fa-map-marker" aria-hidden="true"></i> Purani Gali, neel Gao 63990</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="candidate-list-favourite-time text-center">
-                                <span class="candidate-list-time order-1">2 years</span>
-                            </td>
-                            <td>
-                                <span class="candidate-list-time order-2">25 Feb,2022</span>
-                            </td>
-                            <td>
-                                <a href="#" class="text-success" data-toggle="tooltip" title="" data-original-title="unblock"><i
-                    class="fa fa-unlock" aria-hidden="true"></i>
-                </a>
-                            </td>
-                        </tr>
-                        <tr class="candidates-list">
-                            <td class="title">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="images/25.jpg" alt="">
-                                </div>
-                                <div class="candidate-list-details">
-                                    <div class="candidate-list-info">
-                                        <div class="candidate-list-title">
-                                            <h5 class="mb-0"><a href="#">Ramnath Mali</a></h5>
-                                        </div>
-                                        <div class="candidate-list-option">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fa fa-mobile" aria-hidden="true"></i> 9165937994</li>
-                                                <li><i class="fa fa-map-marker" aria-hidden="true"></i> Purani Gali, neel Gao 63990</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="candidate-list-favourite-time text-center">
-                                <span class="candidate-list-time order-1">2 years</span>
-                            </td>
-                            <td>
-                                <span class="candidate-list-time order-2">25 Feb,2022</span>
-                            </td>
-                            <td>
-                                <a href="#" class="text-success" data-toggle="tooltip" title="" data-original-title="unblock"><i
-                    class="fa fa-unlock" aria-hidden="true"></i>
+                                <a style="cursor: pointer;" (click)="UnBlockUser(user._id)" *ngIf="user.isBlock == true" class="text-danger" data-toggle="tooltip" title="" data-original-title="block"><i
+                    style="font-size: 30px;" class="fa fa-lock" aria-hidden="true"></i>
                 </a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="raj">
+            <!-- <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">User Profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+            <div class="modal-body">
+                <div class="page-content page-container" id="page-content">
+                    <div class="padding">
+                        <div class="row  d-flex justify-content-center">
+                            <div class="col-md-12">
+                                <div class="card user-card-full">
+                                    <div class="row m-l-0 m-r-0">
+                                        <div class="col-sm-4 bg-c-lite-green user-profile">
+                                            <div class="card-block text-center text-white">
+                                                <div class="m-b-25">
+                                                    <img src="{{user.userImage}}" width="100px" height="100px" class="img-radius" alt="User-Profile-Image">
+                                                </div>
+                                                <h6 class="f-w-600">{{user.userName}}</h6>
+                                                <p>User</p>
+                                                <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="card-block">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                                                <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <p class="m-b-10 f-w-600">Name</p>
+                                                        <h6 class="text-muted f-w-400">{{user.userName}}</h6>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <p class="m-b-10 f-w-600">Address</p>
+                                                        <h6 class="text-muted f-w-400">{{user.userAddress}}</h6>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <p class="m-b-10 f-w-600">Email</p>
+                                                        <h6 class="text-muted f-w-400">{{user.userEmail}}</h6>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <p class="m-b-10 f-w-600">Phone</p>
+                                                        <h6 class="text-muted f-w-400">{{user.userMobile}}</h6>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <p class="m-b-10 f-w-600">Join Date</p>
+                                                        <h6 class="text-muted f-w-400">{{user.userJoinDate | date}}</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
+            </div> -->
         </div>
     </div>
 </div>

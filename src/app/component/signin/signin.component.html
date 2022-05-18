@@ -29,12 +29,13 @@
                 <div class="input-field button">
                     <input data-toggle="modal" data-target="#exampleModal" (click)="setApi('login')" type="button" value="Signin ">
                 </div>
-                <!-- <div class="Google-signin">
-          <span class="text">
-            <a data-toggle="modal" data-target="#exampleModal" style="cursor: pointer;" class="text signup-text">Signin
+                <div class="Google-signin">
+                    <span class="text">
+            <a (click)="setApi('googleSignin')" data-toggle="modal" data-target="#exampleModal" style="cursor: pointer;"
+              class="text signup-text">Signin
               with Google</a>
           </span>
-        </div> -->
+                </div>
             </form>
         </div>
     </div>

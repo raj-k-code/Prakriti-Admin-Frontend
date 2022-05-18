@@ -1,0 +1,289 @@
+<div class="container mt-3 mb-4">
+    <div class="row">
+        <div class="col">
+            <h1 style="text-align: center; margin: 30px;">All Categories</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button (click)="setBlanck()" data-toggle="modal" data-target="#my2Modal" style="float: right;" class="btn btn-success m-3"><i class="fa fa-plus" aria-hidden="true"></i> Add
+        Category</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
+                <table class="table table-hover manage-candidates-top mb-0">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let category of categoryList; index as i" class="candidates-list">
+                            <td class="title">
+                                <div class="thumb">
+                                    <img class="img-fluid" src="{{category.categoryImage}}" alt="">
+                                </div>
+                            </td>
+                            <td>
+                                {{category.categoryName}}
+                            </td>
+                            <td>
+                                <a (click)="setBlanck()" (click)="viewCategory(category)" data-toggle="modal" data-target="#myModal" style="cursor: pointer;" class="text-primary"><i style="font-size: 30px;"
+                    class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </a>
+                            </td>
+                            <td>
+                                <a (click)="deleteCategory(category._id, i)" style="cursor: pointer;" class="text-danger" data-toggle="tooltip" title="" data-original-title="block"><i style="font-size: 30px;"
+                    class="fa fa-trash" aria-hidden="true"></i>
+                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- !-- Modal -->
+<!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div id="exampleModalCenter" class="modal-body">
+        <div class="container " style="background:white;font-family: montserrat;">
+          <div class="row d-flex justify-content-center align-items-center ">
+            <div class="col-lg-12">
+              <div class="card-body ">
+                <div class="row justify-content-center">
+                  <div class="col-12 order-2 order-lg-1" style="box-shadow: 0 0 10px gray;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Add Category</p>
+                    <form class="mx-1 mx-md-4">
+                      <label class="form-label" for="form3Example1c">Category Name</label>
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <div class="form-outline flex-fill mb-0">
+                          <input #catName="ngModel" ngModel required name="name" [(ngModel)]="categoryEdit.categoryName"
+                            type="text" id="form3Example1c" class="form-control" placeholder="Category Name" />
+                          <!-- <span class="alert alert-danger" *ngIf="catName.errors?.required && catName.touched ">Please
+                            Enter
+                            Category Name</span>
+                        </div>
+                      </div>
+
+                      <label class="form-label" for="form3Example1c">Category Image</label>
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <div class="form-outline flex-fill mb-0">
+                          <input name="image" [(ngModel)]="categoryEdit.categoryImage" (change)="onSelect($event)"
+                            type="file" id="form3Example1c" class="form-control" />
+                          <div class="pimg" style="padding-top: 15px;"></div>
+                          <img [src]="showImage" class="img-fluid" alt="Sample image"
+                            style="width: 150px; height: 100px;   box-shadow: 0 0 10px gray;">
+                        </div>
+                      </div>
+                      <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                        <button data-dismiss="modal" (click)="addNewCategory()" type="button"
+                          class="btn btn-success btn-lg">Add
+                          Category</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+<!-- !-- Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div id="exampleModalCenter" class="modal-body">
+                    <div class="container " style="background:white;font-family: montserrat;">
+                        <div class="row d-flex justify-content-center align-items-center ">
+                            <div class="col-lg-12">
+                                <div class="card-body ">
+                                    <div class="row justify-content-center">
+                                        <div class="col-12 order-2 order-lg-1" style="box-shadow: 0 0 10px gray;">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                                            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Edit Category</p>
+                                            <form class="mx-1 mx-md-4">
+                                                <label class="form-label" for="form3Example1c">Category Name</label>
+                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                    <div class="form-outline flex-fill mb-0">
+                                                        <input #catName="ngModel" ngModel required name="name" [(ngModel)]="categoryEdit.categoryName" type="text" id="form3Example1c" class="form-control" placeholder="Category Name" />
+                                                        <!-- <span class="alert alert-danger" *ngIf="catName.errors?.required && catName.touched ">Please
+                                            Enter
+                                            Category Name</span> -->
+                                                    </div>
+                                                </div>
+
+                                                <label class="form-label" for="form3Example1c">Category Image</label>
+                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                    <div class="form-outline flex-fill mb-0">
+                                                        <input name="image" [(ngModel)]="categoryEdit.categoryImage" (change)="onSelect($event)" type="file" id="form3Example1c" class="form-control" />
+                                                        <div class="pimg" style="padding-top: 15px;"></div>
+                                                        <img [src]="showImage" class="img-fluid" alt="Sample image" style="width: 150px; height: 100px;   box-shadow: 0 0 10px gray;">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                                    <button data-dismiss="modal" (click)="editCategory()" type="button" class="btn btn-success btn-lg">Edit
+                            Category</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- !-- Modal -->
+<div class="modal" id="my2Modal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div id="exampleModalCenter" class="modal-body">
+                    <div class="container " style="background:white;font-family: montserrat;">
+                        <div class="row d-flex justify-content-center align-items-center ">
+                            <div class="col-lg-12">
+                                <div class="card-body ">
+                                    <div class="row justify-content-center">
+                                        <div class="col-12 order-2 order-lg-1" style="box-shadow: 0 0 10px gray;">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                                            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Add Category</p>
+                                            <form class="mx-1 mx-md-4">
+                                                <label class="form-label" for="form3Example1c">Category Name</label>
+                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                    <div class="form-outline flex-fill mb-0">
+                                                        <input #catName="ngModel" ngModel required name="name" [(ngModel)]="category.categoryName" type="text" id="form3Example1c" class="form-control" placeholder="Category Name" />
+                                                        <!-- <span class="alert alert-danger" *ngIf="catName.errors?.required && catName.touched ">Please
+                                                    Enter
+                                                    Category Name</span> -->
+                                                    </div>
+                                                </div>
+
+                                                <label class="form-label" for="form3Example1c">Category Image</label>
+                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                    <div class="form-outline flex-fill mb-0">
+                                                        <input name="image" [(ngModel)]="category.categoryImage" (change)="onSelect($event)" type="file" id="form3Example1c" class="form-control" />
+                                                        <div class="pimg" style="padding-top: 15px;"></div>
+                                                        <img [src]="showImage" class="img-fluid" alt="Sample image" style="width: 150px; height: 100px;   box-shadow: 0 0 10px gray;">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                                    <button data-dismiss="modal" (click)="addNewCategory()" type="button" class="btn btn-success btn-lg">Add
+                            Category</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="container " style="background:white;font-family: montserrat;">
+  <div class="row d-flex justify-content-center align-items-center ">
+    <div class="col-lg-12">
+      <div class="card-body ">
+        <div class="row justify-content-center">
+          <div class="col-12 order-2 order-lg-1" style="box-shadow: 0 0 10px gray;">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Add Category</p>
+
+            <form class="mx-1 mx-md-4">
+              <label class="form-label" for="form3Example1c">Product Name</label>
+              <div class="d-flex flex-row align-items-center mb-4">
+                <div class="form-outline flex-fill mb-0">
+                  <input type="text" id="form3Example1c" class="form-control" placeholder="ProductName" />
+                </div>
+              </div>
+              <div class="d-flex flex-row align-items-center mb-4">
+                <label class="form-label" for="form3Example3c">Category</label>
+                <div class="form-outline flex-fill mb-0">
+                  <select class="select">
+                    <option value="1" disabled></option>
+                    <option value="2">outdoor</option>
+                    <option value="3">office</option>
+                    <option value="4">pot</option>
+                  </select>
+                </div>
+              </div>
+              <label class="form-label" for="form3Example1c">Add Product Price</label>
+              <div class="d-flex flex-row align-items-center mb-4">
+                <div class="form-outline flex-fill mb-0">
+                  <input type="number" id="form3Example1c" class="form-control" placeholder="Product Price" />
+                </div>
+              </div>
+              <label class="form-label" for="form3Example1c">Add Product Image</label>
+              <div class="d-flex flex-row align-items-center mb-4">
+                <div class="form-outline flex-fill mb-0">
+                  <input type="file" id="form3Example1c" class="form-control" />
+                  <div class="pimg" style="padding-top: 15px;"></div>
+                  <img src="../../../../../assets/images/dashboard (2).png" class="img-fluid" alt="Sample image"
+                    style="width: 150px; height: 100px;   box-shadow: 0 0 10px gray;">
+                </div>
+              </div>
+              <label class="form-label" for="form3Example1c">Description</label>
+              <div class="d-flex flex-row align-items-center mb-4">
+                <div class="form-outline flex-fill mb-0">
+                  <input type="text" id="form3Example1c" class="form-control" placeholder="Discription" />
+
+                </div>
+              </div>
+              <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                <button type="button" class="btn btn-success btn-lg">Add Product</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

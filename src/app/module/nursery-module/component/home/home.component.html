@@ -1,1 +1,39 @@
-<p>nursery home works!</p>
+<div class="side-menu">
+    <div class="brand-name">
+        <h1><img src="../../../assets/images/logoprikriti1.png" alt=""></h1>
+    </div>
+    <ul>
+        <li routerLink="/admin"><img src="../../../assets/images/dashboard (2).png" alt="">&nbsp;<span>Home</span></li>
+        <li routerLink="product-list"><img src="../../../assets/images/payment.png" alt="">&nbsp; <span>Products</span>
+        </li>
+
+        <li routerLink="nursery-list"><img src="../../../assets/images/reading-book (1).png" alt="">&nbsp;<span>Nuseries</span> </li>
+        <li routerLink="gardener-list"><img src="../../../assets/images/teacher2.png" alt="">&nbsp;<span>Gardeners</span>
+        </li>
+        <li routerLink="user-list"><img src="../../../assets/images/school.png" alt="">&nbsp;<span>Users</span> </li>
+        <li><img src="../../../assets/images/payment.png" alt="">&nbsp;<span>Income</span> </li>
+    </ul>
+</div>
+
+<div class="container1">
+    <div class="header">
+        <div class="nav">
+            <div class="search">
+                <input type="text" placeholder="Search..">
+                <button type="submit"><img src="../../../assets/images/search.png" alt=""></button>
+            </div>
+            <div class="user">
+                <a href="#" class="btn">Add New</a>
+                <img src="../../../assets/images/notifications.png" alt="">
+                <div class="img-case">
+                    <img src="../../../assets/images/user.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container1">
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

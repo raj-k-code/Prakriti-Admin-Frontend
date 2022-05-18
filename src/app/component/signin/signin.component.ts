@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 // import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 import { ToastrService } from 'ngx-toastr';
 import { Admin } from '../../model/admin'
@@ -15,12 +16,12 @@ import { NursuryService } from '../../service/nursury.service';
 })
 export class SigninComponent implements OnInit {
   admin: Admin = new Admin("", "");
-  nursury: Nursury = new Nursury("", "", "", "", "", "", "", "");
+  nursury: Nursury = new Nursury("", "", "", "", "", "", "", "", "", "");
   forgotEmail: any;
   number: any;
   whichApi: any;
 
-  constructor(private toaster: ToastrService, private adminService: AdminService, private router: Router, private nursurySercice: NursuryService) {
+  constructor(private toaster: ToastrService, private socialService: SocialAuthService, private adminService: AdminService, private router: Router, private nursurySercice: NursuryService) {
   }
 
   ngOnInit(): void {
@@ -142,66 +143,66 @@ export class SigninComponent implements OnInit {
   }
 
 
-  // googleSignin() {
-  //   this.socialService.signIn(GoogleLoginProvider.PROVIDER_ID)
-  //   this.socialService.authState.subscribe(data => {
-  //     console.log(data.email);
+  googleSignin() {
+    this.socialService.signIn(GoogleLoginProvider.PROVIDER_ID)
+    this.socialService.authState.subscribe(data => {
+      console.log(data.email);
 
-  //     if (sessionStorage.getItem('number') == "1") {
-  //       this.adminService.signinWithGoogle(data.email).subscribe(data => {
-  //         sessionStorage.setItem('token', data.token);
-  //         sessionStorage.setItem('userId', data.data._id);
-  //         this.toaster.success("Login Successfully", "Success", {
-  //           positionClass: 'toast-top-center'
-  //         });
-  //         sessionStorage.setItem('userImage', data.Image);
+      if (sessionStorage.getItem('number') == "1") {
+        this.adminService.signinWithGoogle(data.email).subscribe(data => {
+          sessionStorage.setItem('token', data.token);
+          sessionStorage.setItem('userId', data.data._id);
+          this.toaster.success("Login Successfully", "Success", {
+            positionClass: 'toast-top-center'
+          });
+          sessionStorage.setItem('userImage', data.Image);
 
-  //         this.router.navigate(['admin']);
+          this.router.navigate(['admin']);
 
-  //       }, err => {
-  //         if (err instanceof HttpErrorResponse) {
-  //           if (err.status == 401) {
-  //             this.toaster.error("Invalid User", "Error");
-  //           }
-  //           else if (err.status == 500) {
-  //             this.toaster.error("Internal Server Error", "Error");
+        }, err => {
+          if (err instanceof HttpErrorResponse) {
+            if (err.status == 401) {
+              this.toaster.error("Invalid User", "Error");
+            }
+            else if (err.status == 500) {
+              this.toaster.error("Internal Server Error", "Error");
 
-  //           }
-  //           else if (err.status == 400) {
-  //             this.toaster.error("Bad Request", "Error");
+            }
+            else if (err.status == 400) {
+              this.toaster.error("Bad Request", "Error");
 
-  //           }
-  //         }
-  //       });
-  //     }
-  //     else if (sessionStorage.getItem('number') == "2") {
-  //       this.nursurySercice.signinWithGoogle(data.email).subscribe(data => {
-  //         sessionStorage.setItem('token', data.token);
-  //         sessionStorage.setItem('userId', data.data._id);
-  //         this.toaster.success("Login Successfully", "Success");
-  //         // sessionStorage.setItem('userImage', data.data.Image);
+            }
+          }
+        });
+      }
+      else if (sessionStorage.getItem('number') == "2") {
+        this.nursurySercice.signinWithGoogle(data.email).subscribe(data => {
+          sessionStorage.setItem('token', data.token);
+          sessionStorage.setItem('userId', data.data._id);
+          this.toaster.success("Login Successfully", "Success");
+          // sessionStorage.setItem('userImage', data.data.Image);
 
-  //         this.router.navigate(['nursery']);
+          this.router.navigate(['nursery']);
 
-  //       }, err => {
-  //         if (err instanceof HttpErrorResponse) {
-  //           if (err.status == 401) {
-  //             this.toaster.error("Invalid User", "Error");
-  //           }
-  //           else if (err.status == 500) {
-  //             this.toaster.error("Internal Server Error", "Error");
+        }, err => {
+          if (err instanceof HttpErrorResponse) {
+            if (err.status == 401) {
+              this.toaster.error("Invalid User", "Error");
+            }
+            else if (err.status == 500) {
+              this.toaster.error("Internal Server Error", "Error");
 
-  //           }
-  //           else if (err.status == 400) {
-  //             this.toaster.error("Bad Request", "Error");
+            }
+            else if (err.status == 400) {
+              this.toaster.error("Bad Request", "Error");
 
-  //           }
-  //         }
-  //       });
-  //     }
+            }
+          }
+        });
+      }
 
-  //   })
-  // }
+    })
+  }
 
   continueToLogin() {
     console.log("heelll");
@@ -210,8 +211,8 @@ export class SigninComponent implements OnInit {
       this.login();
     else if (this.whichApi == "forgotPassword")
       this.forgotPassword();
-    // else if (this.whichApi == "googleSignin")
-    //   this.googleSignin();
+    else if (this.whichApi == "googleSignin")
+      this.googleSignin();
   }
 
   setApi(api: any) {

@@ -5,17 +5,32 @@ import { AdminModuleRoutingModule } from './admin-module-routing.module';
 import { UserComponent } from './component/user/user.component';
 import { HomesComponent } from './component/homes/homes.component';
 import { DefaultComponent } from './component/default/default.component';
+import { GardenerComponent } from './component/gardener/gardener.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NurseryComponent } from './component/nursery/nursery.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ViewProductComponent } from './component/view-product/view-product.component';
+import { CategoryComponent } from './component/category/category.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     UserComponent,
     HomesComponent,
-    DefaultComponent
+    DefaultComponent,
+    GardenerComponent,
+    NurseryComponent,
+    ViewProductComponent,
+    CategoryComponent
   ],
   imports: [
     CommonModule,
-    AdminModuleRoutingModule
+    AdminModuleRoutingModule,
+    NgbModule,
+    CommonModule,
+    NgxPaginationModule,
+    FormsModule
   ]
 })
 export class AdminModuleModule {

@@ -3,13 +3,15 @@
         <h1><img src="../../../assets/images/logoprikriti1.png" alt=""></h1>
     </div>
     <ul>
-        <li routerLink="admin/"><img src="../../../assets/images/dashboard (2).png" alt="">&nbsp;<span>Home</span></li>
-        <li><img src="../../../assets/images/payment.png" alt="">&nbsp; <span>Oders</span> </li>
+        <li routerLink="/admin"><img src="../../../assets/images/dashboard (2).png" alt="">&nbsp;<span>Home</span></li>
+        <li routerLink="category-list"><img src="../../../assets/images/payment.png" alt="">&nbsp; <span>Categories</span>
+        </li>
 
-        <li><img src="../../../assets/images/reading-book (1).png" alt="">&nbsp;<span>Nurusry</span> </li>
-        <li><img src="../../../assets/images/teacher2.png" alt="">&nbsp;<span>Gardners</span> </li>
-        <li routerLink="user-list"><img src="../../../assets/images/school.png" alt="">&nbsp;<span>User</span> </li>
-        <li><img src="../../../assets/images/payment.png" alt="">&nbsp;<span>Income</span> </li>
+        <li routerLink="nursery-list"><img src="../../../assets/images/reading-book (1).png" alt="">&nbsp;<span>Nuseries</span> </li>
+        <li routerLink="gardener-list"><img src="../../../assets/images/teacher2.png" alt="">&nbsp;<span>Gardeners</span>
+        </li>
+        <li routerLink="user-list"><img src="../../../assets/images/school.png" alt="">&nbsp;<span>Users</span> </li>
+        <li (click)="signOut()"><img src="../../../assets/images/payment.png" alt="">&nbsp;<span>Sign Out</span> </li>
     </ul>
 </div>
 

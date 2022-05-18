@@ -14,7 +14,7 @@ export class NursuryService {
   }
 
   public signinWithGoogle(email: any) {
-    let signinWithGoogleApi = "http://localhost:3000/nursery/signin-with-google";
+    let signinWithGoogleApi = "http://localhost:3000/nurseryowner/signin-with-google";
     return this.http.post<any>(signinWithGoogleApi, { nurseryOwnerEmail: email });
   }
 
