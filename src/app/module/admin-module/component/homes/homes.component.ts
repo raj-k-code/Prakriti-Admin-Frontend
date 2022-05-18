@@ -16,6 +16,7 @@ export class HomesComponent implements OnInit {
   // goToHome() {
   //   this.router.navigate(['admin']);
   // }
+  // raj
 
   public signOut() {
     if (confirm("Are You Sure ?")) {
