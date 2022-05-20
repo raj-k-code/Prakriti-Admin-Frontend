@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Product } from '../model/product';
 
 @Injectable({
   providedIn: 'root'
@@ -19,4 +20,18 @@ export class ProductService {
     return this.http.get<any>(productByIdApi);
   }
 
+  public deleteProduct(productId: any) {
+    let deleteProductApi = "http://localhost:3000/product/delete-product";
+    return this.http.post<any>(deleteProductApi, { productId: productId });
+  }
+
+  public addProduct(product: FormData) {
+    let addProductApi = "http://localhost:3000/product/add-product";
+    return this.http.post<any>(addProductApi, product);
+  }
+
+  public editProduct(product: FormData) {
+    let editProductApi = "http://localhost:3000/product/edit-product";
+    return this.http.post<any>(editProductApi, product);
+  }
 }

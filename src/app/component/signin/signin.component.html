@@ -9,25 +9,25 @@
                 <div class="input-field" style="margin-top: 0%;">
                     <input pattern="^([\w]*[\w\.]*(?!\.)@gmail.com)" [(ngModel)]="admin.email" ngModel name="email" type="text" #Email="ngModel" placeholder="Enter your email" required>
                     <i class="uil uil-envelope-alt icon"></i>
-                    <!-- <span class="alert alert-danger" *ngIf="Email.errors?.required && Email.touched ">Please Enter Email
+                    <span class="alert alert-danger" *ngIf="Email.errors?.['required'] && Email.touched ">Please Enter Email
             Address</span>
-          <span class="alert alert-danger" *ngIf="Email.errors?.pattern&& Email.touched ">Please Enter Valid Email
-            Address</span> -->
+                    <span class="alert alert-danger" *ngIf="Email.errors?.['pattern'] && Email.touched ">Please Enter Valid Email
+            Address</span>
                 </div>
                 <div class="input-field">
                     <input [(ngModel)]="admin.password" ngModel #Password="ngModel" name="password" type="text" placeholder="Enter your password" required>
                     <i class="uil uil-lock icon"></i>
                     <i class="uil uil-eye-slash showHidePw"></i>
-                    <!-- <div class="alert alert-danger" *ngIf="Password.touched && !Password.valid">
-            <div *ngIf="Password.errors?.required">Password is required.</div>
-          </div> -->
+                    <div class="alert alert-danger" *ngIf="Password.touched && !Password.valid">
+                        <div *ngIf="Password.errors?.['required']">Password is required.</div>
+                    </div>
                 </div>
                 <div class="checkbox-text">
                     <a data-toggle="modal" data-target="#exampleModalCenter" (click)="setApi('forgotPassword')" style="cursor: pointer;">Forgot
             password?</a>
                 </div>
                 <div class="input-field button">
-                    <input data-toggle="modal" data-target="#exampleModal" (click)="setApi('login')" type="button" value="Signin ">
+                    <input [disabled]="Email.invalid || Password.invalid" data-toggle="modal" data-target="#exampleModal" (click)="setApi('login')" type="button" value="Signin ">
                 </div>
                 <div class="Google-signin">
                     <span class="text">

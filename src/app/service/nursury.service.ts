@@ -22,4 +22,6 @@ export class NursuryService {
     let signInApi = "http://localhost:3000/nurseryowner/forgot-password";
     return this.http.post<any>(signInApi, { nurseryOwnerEmail: email });
   }
+
+
 }

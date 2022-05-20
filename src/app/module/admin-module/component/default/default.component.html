@@ -91,12 +91,12 @@
                                     <span class="candidate-list-time order-2">{{nursery.JoinDate | date}}</span>
                                 </td>
                                 <td>
-                                    <a style="cursor: pointer;" (click)="approve(nursery)" class="text-success"><i class="fa fa-check"
+                                    <a style="cursor: pointer;" (click)="approve(nursery,i)" class="text-success"><i class="fa fa-check"
                       aria-hidden="true"></i>
                   </a>
                                 </td>
                                 <td>
-                                    <a (click)="cancel(nursery)" style="cursor: pointer;" class="text-danger"><i class="fa fa-times"
+                                    <a (click)="cancel(nursery,i)" style="cursor: pointer;" class="text-danger"><i class="fa fa-times"
                       aria-hidden="true"></i></a>
                                 </td>
                             </tr>
@@ -115,6 +115,10 @@
 
     </div>
 </div>
+
+
+<!-- SPINNER -->
+<ngx-spinner bdColor="white" template="<img src='https://gardendevices.com/wp-content/uploads/2020/09/garden-loader.gif' />"></ngx-spinner>
 
 
 <!-- <div class="container mt-3 mb-4">

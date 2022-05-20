@@ -1,0 +1,253 @@
+<section class="new-arrivals-products-area bg-gray section-padding-100">
+    <div class="container " style="margin-top: 100px;">
+        <div class="row ">
+            <div class="col">
+                <h1 style="text-align: center;">Your All Products</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <button (click)="setBlanck()" data-toggle="modal" data-target="#my2Modal" style="float: right;" class="btn btn-success m-3"><i class="fa fa-plus" aria-hidden="true"></i> Add
+          Product</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div *ngFor="let product of productList | paginate: { itemsPerPage: 8, currentPage: page}; index as i " class="col-12 col-sm-6 col-lg-3">
+                <div class="single-product-area mb-50 wow fadeInUp mt-5" data-wow-delay="100ms">
+                    <div class="product-img">
+                        <a style="cursor: pointer;"><img class="product-image" src="{{product.productImage}}" alt=""></a>
+                        <div class="product-meta d-flex">
+                            <a (click)="deleteProduct(product._id, page,i)" style="cursor: pointer;" class="text-white wishlist-btn"><i style="font-size: 30px;" class="fa fa-trash" aria-hidden="true"></i>
+              </a>
+
+                            <a (click)="viewProduct(product,true)" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter" class="add-to-cart-btn">About</a>
+
+                            <a data-toggle="modal" data-target="#myModal" (click)="viewProduct(product,false)" style="cursor: pointer;" class="text-white wishlist-btn"><i style="font-size: 30px;"
+                  class="fa fa-pencil-square-o" aria-hidden="true"></i>
+              </a>
+                        </div>
+                    </div>
+                    <!-- Product Info -->
+                    <div class="product-info mt-2 text-center">
+                        <a style="cursor: pointer;">
+                            <p>{{product.productName | uppercase}} </p>
+                        </a>
+                        <h6>Rs. {{product.productPrice}}.00</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div *ngIf="(productList.length > 0)" class="row mt-5">
+    <div class="col col-lg-3 col-md-2 col-sm-0"></div>
+    <div class="col col-lg-6 col-md-8 col-sm-12">
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+    <div class="col col-lg-3 col-md-2 col-sm-0"></div>
+</div>
+
+<div *ngIf="(productList.length == 0)" class="row">
+    <div class="col-12">
+        <h1 style="text-align: center;">No Result Found With This Nursery</h1>
+    </div>
+</div>
+
+
+
+
+<!-- Modal  View Product-->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="raj">
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="container view">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img class="d-block w-100" src="{{product.productImage}}" alt="First slide">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                                <h2>{{product.productName | uppercase}}</h2>
+                                <p class="price">Rs. ₹{{product.productPrice}}.00</p>
+                                <p><b>Rating: </b>
+                                    <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="true"></ngb-rating>
+                                    {{starRating}} based on {{product.productRating.length}} Users
+                                </p>
+                                <p></p>
+                                <p><b>Description:</b>{{product.productDescription}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- !-- Modal Edit Product-->
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="container " style="background:white;font-family: montserrat;">
+                    <div class="row d-flex justify-content-center align-items-center ">
+                        <div class="col-lg-12">
+                            <div class="card-body ">
+                                <div class="row justify-content-center">
+                                    <div class="col-12 order-2 order-lg-1" style="box-shadow: 0 0 10px gray;">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                                        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Edit Product</p>
+
+                                        <form class="mx-1 mx-md-4">
+                                            <label class="form-label" for="form3Example1c">Product Name</label>
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <div class="form-outline flex-fill mb-0">
+                                                    <input name="productName" [(ngModel)]="productEdit.productName" type="text" id="form3Example1c" class="form-control" placeholder="ProductName" />
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <label class="form-label" for="form3Example3c">Category: </label>
+                                                <div class="form-outline flex-fill mb-0">
+                                                    <select name="catName" [(ngModel)]="productEdit.categoryName" class="custom-select" id="inputGroupSelect01" [ngModelOptions]="{ standalone: true }">
+                            <option *ngFor="let item of categoryList" [ngValue]="item.categoryName">
+                              {{ item.categoryName }}
+                            </option>
+                          </select>
+                                                </div>
+                                            </div>
+                                            <label class="form-label" for="form3Example1c">Add Product Price</label>
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <div class="form-outline flex-fill mb-0">
+                                                    <input name="price" [(ngModel)]="productEdit.productPrice" type="text" id="form3Example1c" class="form-control" placeholder="Product Price" />
+                                                </div>
+                                            </div>
+                                            <label class="form-label" for="form3Example1c">Add Product Image</label>
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <div class="form-outline flex-fill mb-0">
+                                                    <input (change)="onSelect($event)" type="file" id="form3Example1c" class="form-control" />
+                                                    <div class="pimg" style="padding-top: 15px;"></div>
+                                                    <img [src]="showImage" class="img-fluid" alt="Sample image" style="width: 150px; height: 100px;   box-shadow: 0 0 10px gray;">
+                                                </div>
+                                            </div>
+                                            <label class="form-label" for="form3Example1c">Description</label>
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <div class="form-outline flex-fill mb-0">
+                                                    <input name="desc" [(ngModel)]="productEdit.productDescription" type="text" id="form3Example1c" class="form-control" placeholder="Discription" />
+                                                </div>
+                                            </div>
+                                            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                                <button (click)="editCategory()" data-dismiss="modal" type="button" class="btn btn-success btn-lg">Edit
+                          Product</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- !-- Modal Add Product -->
+<div class="modal" id="my2Modal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="container " style="background:white;font-family: montserrat;">
+                    <div class="row d-flex justify-content-center align-items-center ">
+                        <div class="col-lg-12">
+                            <div class="card-body ">
+                                <div class="row justify-content-center">
+                                    <div class="col-12 order-2 order-lg-1" style="box-shadow: 0 0 10px gray;">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                                        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Add Product</p>
+
+                                        <form class="mx-1 mx-md-4">
+                                            <label class="form-label" for="form3Example1c">Product Name</label>
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <div class="form-outline flex-fill mb-0">
+                                                    <input name="productName" [(ngModel)]="product.productName" type="text" id="form3Example1c" class="form-control" placeholder="ProductName" />
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <label class="form-label" for="form3Example3c">Category: </label>
+                                                <div class="form-outline flex-fill mb-0">
+                                                    <select name="catName" [(ngModel)]="product.categoryName" class="custom-select" id="inputGroupSelect01" [ngModelOptions]="{ standalone: true }">
+                            <option *ngFor="let item of categoryList" [ngValue]="item.categoryName">
+                              {{ item.categoryName }}
+                            </option>
+                          </select>
+                                                </div>
+                                            </div>
+                                            <label class="form-label" for="form3Example1c">Add Product Price</label>
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <div class="form-outline flex-fill mb-0">
+                                                    <input name="price" [(ngModel)]="product.productPrice" type="text" id="form3Example1c" class="form-control" placeholder="Product Price" />
+                                                </div>
+                                            </div>
+                                            <label class="form-label" for="form3Example1c">Add Product Image</label>
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <div class="form-outline flex-fill mb-0">
+                                                    <input (change)="onSelect($event)" type="file" id="form3Example1c" class="form-control" />
+                                                    <div class="pimg" style="padding-top: 15px;"></div>
+                                                    <img [src]="showImage" class="img-fluid" alt="Sample image" style="width: 150px; height: 100px;   box-shadow: 0 0 10px gray;">
+                                                </div>
+                                            </div>
+                                            <label class="form-label" for="form3Example1c">Description</label>
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <div class="form-outline flex-fill mb-0">
+                                                    <input name="desc" [(ngModel)]="product.productDescription" type="text" id="form3Example1c" class="form-control" placeholder="Discription" />
+                                                </div>
+                                            </div>
+                                            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                                <button data-dismiss="modal" (click)="addNewProduct()" type="button" class="btn btn-success btn-lg">Add
+                          Product</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SPINNER -->
+<ngx-spinner bdColor="white" template="<img src='https://gardendevices.com/wp-content/uploads/2020/09/garden-loader.gif' />"></ngx-spinner>

@@ -38,7 +38,7 @@ export class SigninComponent implements OnInit {
         if (data.status) {
           sessionStorage.setItem('token', data.token);
           sessionStorage.setItem('userId', data.data._id);
-          sessionStorage.setItem('userImage', "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyw551VPZXNStb2o_1PS7LJpIVrR-qbwqyDuBj6m4Xa3ePEE9DqQVB2_U9JsMoPKRrhHE&usqp=CAU");
+          sessionStorage.setItem('image', "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyw551VPZXNStb2o_1PS7LJpIVrR-qbwqyDuBj6m4Xa3ePEE9DqQVB2_U9JsMoPKRrhHE&usqp=CAU");
           this.toaster.success("Login Successfully", "Success");
           this.router.navigate(['admin']);
         }
@@ -65,6 +65,8 @@ export class SigninComponent implements OnInit {
       this.nursurySercice.signIn(this.nursury).subscribe(data => {
         sessionStorage.setItem('token', data.token);
         sessionStorage.setItem('userId', data.data._id);
+        sessionStorage.setItem('image', data.data.Image);
+
         this.toaster.success("Login Successfully", "Success");
 
         sessionStorage.setItem('userImage', data.data.Image);
@@ -146,7 +148,8 @@ export class SigninComponent implements OnInit {
   googleSignin() {
     this.socialService.signIn(GoogleLoginProvider.PROVIDER_ID)
     this.socialService.authState.subscribe(data => {
-      console.log(data.email);
+      console.log(data);
+      var photo = data.photoUrl
 
       if (sessionStorage.getItem('number') == "1") {
         this.adminService.signinWithGoogle(data.email).subscribe(data => {
@@ -155,7 +158,7 @@ export class SigninComponent implements OnInit {
           this.toaster.success("Login Successfully", "Success", {
             positionClass: 'toast-top-center'
           });
-          sessionStorage.setItem('userImage', data.Image);
+          sessionStorage.setItem('image', photo);
 
           this.router.navigate(['admin']);
 
@@ -179,6 +182,8 @@ export class SigninComponent implements OnInit {
         this.nursurySercice.signinWithGoogle(data.email).subscribe(data => {
           sessionStorage.setItem('token', data.token);
           sessionStorage.setItem('userId', data.data._id);
+          sessionStorage.setItem('image', data.data.Image);
+
           this.toaster.success("Login Successfully", "Success");
           // sessionStorage.setItem('userImage', data.data.Image);
 

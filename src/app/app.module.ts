@@ -14,6 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TokenIntercepterService } from './intercepter/token-intercepter.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { GoogleLoginProvider, SocialLoginModule } from 'angularx-social-login';
+import { NgxSpinnerModule } from 'ngx-spinner'
 
 const socialProvider = {
   provide: 'SocialAuthServiceConfig',
@@ -42,7 +43,8 @@ const socialProvider = {
     HttpClientModule,
     NgbModule,
     NgxPaginationModule,
-    SocialLoginModule
+    SocialLoginModule,
+    NgxSpinnerModule
 
   ],
   providers: [

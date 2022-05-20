@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Category } from 'src/app/model/category';
 import { AdminService } from 'src/app/service/admin.service';
+import { NgxSpinnerService } from 'ngx-spinner'
 
 @Component({
   selector: 'app-category',
@@ -17,14 +18,16 @@ export class CategoryComponent implements OnInit {
   showImage: any;
   editShowImage: any;
 
-  constructor(private service: AdminService, private toaster: ToastrService) { }
+  constructor(private spinner: NgxSpinnerService, private service: AdminService, private toaster: ToastrService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.service.categoryList().subscribe(data => {
       if (data.length > 0) {
         this.categoryList = data
         console.log(this.categoryList);
       }
+      this.spinner.hide()
     }, err => {
       if (err instanceof HttpErrorResponse) {
         if (err.status == 401) {
@@ -116,7 +119,6 @@ export class CategoryComponent implements OnInit {
   }
 
   public editCategory() {
-    // alert(this.categoryEdit.categeryId)
 
     console.log(this.categoryEdit);
     const formData = new FormData();

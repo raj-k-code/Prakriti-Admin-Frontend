@@ -18,15 +18,11 @@
 <div class="container1">
     <div class="header">
         <div class="nav">
-            <div class="search">
-                <input type="text" placeholder="Search..">
-                <button type="submit"><img src="../../../assets/images/search.png" alt=""></button>
-            </div>
             <div class="user">
-                <a href="#" class="btn">Add New</a>
-                <img src="../../../assets/images/notifications.png" alt="">
+
+                <img style="cursor: pointer;" routerLink="query-list" src="../../../assets/images/notifications.png" alt="">
                 <div class="img-case">
-                    <img src="../../../assets/images/user.png" alt="">
+                    <img [src]="profileImage" alt="">
                 </div>
             </div>
         </div>

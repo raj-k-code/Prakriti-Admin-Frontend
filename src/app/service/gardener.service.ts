@@ -25,4 +25,10 @@ export class GardenerService {
     return this.http.get<Gardener[]>(gardenerListApi);
   }
 
+
+  public bookTheGardener(gardenerId: string) {
+    let bookTheGardenerApi = "http://localhost:3000/gardener/book-gardener"
+    return this.http.post<any>(bookTheGardenerApi, { nurseryId: sessionStorage.getItem('userId'), gardenerId: gardenerId });
+  }
+
 }

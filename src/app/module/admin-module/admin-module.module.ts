@@ -12,6 +12,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ViewProductComponent } from './component/view-product/view-product.component';
 import { CategoryComponent } from './component/category/category.component';
 import { FormsModule } from '@angular/forms';
+import { OrderHistoryComponent } from './component/order-history/order-history.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { QueryListComponent } from './component/query-list/query-list.component'
 
 
 @NgModule({
@@ -22,7 +25,9 @@ import { FormsModule } from '@angular/forms';
     GardenerComponent,
     NurseryComponent,
     ViewProductComponent,
-    CategoryComponent
+    CategoryComponent,
+    OrderHistoryComponent,
+    QueryListComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +35,8 @@ import { FormsModule } from '@angular/forms';
     NgbModule,
     CommonModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule
   ]
 })
 export class AdminModuleModule {

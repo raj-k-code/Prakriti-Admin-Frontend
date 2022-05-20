@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NurseryService } from 'src/app/service/nursery.service';
+import { NgxSpinnerService } from 'ngx-spinner'
 
 @Component({
   selector: 'app-view-product',
@@ -15,14 +16,18 @@ export class ViewProductComponent implements OnInit {
   page: any;
   product: any;
   starRating: any
-  constructor(private service: NurseryService, private toaster: ToastrService, private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private spinner: NgxSpinnerService, private service: NurseryService, private toaster: ToastrService, private activatedRoute: ActivatedRoute, private router: Router) {
     this.nurseryOwnerId = activatedRoute.snapshot.paramMap.get('id')
   }
 
   ngOnInit(): void {
+    this.spinner.show();
+
     this.service.viewProductList(this.nurseryOwnerId).subscribe(data => {
       this.productList = data
       console.log(this.productList)
+      this.spinner.hide();
+
     }, err => {
       if (err instanceof HttpErrorResponse) {
         if (err.status == 401) {

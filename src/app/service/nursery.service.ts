@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Nursury } from '../model/nursury';
 
@@ -49,5 +50,20 @@ export class NurseryService {
   public nursuryRequestCancel(nurseryId: any, nurseryEmail: any): Observable<any> {
     let nursuryRequestCancelApi = "http://localhost:3000/nurseryowner/nursery-request-cancel";
     return this.http.post<any>(nursuryRequestCancelApi, { nurseryownerId: nurseryId, nurseryOwnerEmail: nurseryEmail });
+  }
+
+  public viewOrderHistory(userId: any) {
+    let viewOrderHistoryApi = "http://localhost:3000/order/view-order";
+    return this.http.post(viewOrderHistoryApi, { userId: userId });
+  }
+
+  public viewProfile(nurseryId: any) {
+    let viewProfileApi = "http://localhost:3000/nurseryowner/nursery-by-id/" + nurseryId;
+    return this.http.get<Nursury>(viewProfileApi);
+  }
+
+  public updateProfile(nursery: FormData): Observable<any> {
+    let updateProfileApi = "http://localhost:3000/nurseryowner/edit";
+    return this.http.post<any>(updateProfileApi, nursery);
   }
 }

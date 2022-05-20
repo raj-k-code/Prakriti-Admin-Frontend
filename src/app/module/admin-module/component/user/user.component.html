@@ -6,12 +6,13 @@
                     <thead>
                         <tr>
                             <th>User</th>
+                            <th>Order History</th>
                             <th>Join Date</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let user of userList" class="candidates-list">
+                        <tr *ngFor="let user of userList | paginate: { itemsPerPage: 6, currentPage: page}" class="candidates-list">
                             <td class="title">
                                 <div class="thumb">
                                     <img (click)="viewProfile(user)" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter" class="img-fluid" src="{{user.userImage}}" alt="">
@@ -33,6 +34,11 @@
                                 </div>
                             </td>
                             <td>
+                                <a routerLink="orders/{{user._id}}" style="cursor: pointer;" class="text-primary" data-toggle="tooltip" title="" data-original-title="unblock"><i style="font-size: 30px;" class="fa fa-eye"
+                    aria-hidden="true"></i>
+                </a>
+                            </td>
+                            <td>
                                 <span class="candidate-list-time order-2">{{user.userJoinDate | date}}</span>
                             </td>
                             <td>
@@ -49,6 +55,14 @@
                 </table>
             </div>
         </div>
+    </div>
+
+    <div *ngIf="(userList.length > 0)" class="row mt-5">
+        <div class="col col-lg-3 col-md-2 col-sm-0"></div>
+        <div class="col col-lg-6 col-md-8 col-sm-12">
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+        <div class="col col-lg-3 col-md-2 col-sm-0"></div>
     </div>
 </div>
 
@@ -125,3 +139,7 @@
         </div>
     </div>
 </div>
+
+
+<!-- SPINNER -->
+<ngx-spinner bdColor="white" template="<img src='https://gardendevices.com/wp-content/uploads/2020/09/garden-loader.gif' />"></ngx-spinner>

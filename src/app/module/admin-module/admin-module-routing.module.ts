@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminGuardService } from 'src/app/service/admin-guard.service';
 import { CategoryComponent } from './component/category/category.component';
 import { DefaultComponent } from './component/default/default.component';
 import { GardenerComponent } from './component/gardener/gardener.component';
 import { HomesComponent } from './component/homes/homes.component';
 import { NurseryComponent } from './component/nursery/nursery.component';
+import { OrderHistoryComponent } from './component/order-history/order-history.component';
+import { QueryListComponent } from './component/query-list/query-list.component';
 import { UserComponent } from './component/user/user.component';
 import { ViewProductComponent } from './component/view-product/view-product.component';
 
@@ -12,30 +15,47 @@ const routes: Routes = [
   {
     path: "",
     component: HomesComponent,
+    canActivate: [AdminGuardService],
     children: [
       {
         path: "",
-        component: DefaultComponent
+        component: DefaultComponent,
+        canActivate: [AdminGuardService],
       },
       {
         path: "user-list",
-        component: UserComponent
+        component: UserComponent,
+        canActivate: [AdminGuardService],
       },
       {
         path: "gardener-list",
-        component: GardenerComponent
+        component: GardenerComponent,
+        canActivate: [AdminGuardService],
       },
       {
         path: "nursery-list",
-        component: NurseryComponent
+        component: NurseryComponent,
+        canActivate: [AdminGuardService],
       },
       {
         path: "nursery-list/product-list/:id",
-        component: ViewProductComponent
+        component: ViewProductComponent,
+        canActivate: [AdminGuardService],
       },
       {
         path: "category-list",
-        component: CategoryComponent
+        component: CategoryComponent,
+        canActivate: [AdminGuardService],
+      },
+      {
+        path: "user-list/orders/:id",
+        component: OrderHistoryComponent,
+        canActivate: [AdminGuardService],
+      },
+      {
+        path: "query-list",
+        component: QueryListComponent,
+        canActivate: [AdminGuardService],
       }
 
     ]

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/service/user.service';
+import { NgxSpinnerService } from 'ngx-spinner'
 
 @Component({
   selector: 'app-user',
@@ -13,15 +14,18 @@ import { UserService } from 'src/app/service/user.service';
 export class UserComponent implements OnInit {
   userList: User[] = [];
   user = new User("", "", "", "", "", "", "", "", "");
+  page: any
 
-  constructor(private service: UserService, private toaster: ToastrService, private router: Router) { }
+  constructor(private spinner: NgxSpinnerService, private service: UserService, private toaster: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
+    this.spinner.show();
+
     this.service.userList().subscribe(data => {
       if (data.length > 0)
         this.userList = data
       console.log(data);
-
+      this.spinner.hide()
     }, err => {
       if (err instanceof HttpErrorResponse) {
         if (err.status == 401) {

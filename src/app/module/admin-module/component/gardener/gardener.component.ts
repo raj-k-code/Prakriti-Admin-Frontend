@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Gardener } from 'src/app/model/gardener';
 import { GardenerService } from 'src/app/service/gardener.service';
+import { NgxSpinnerService } from 'ngx-spinner'
 
 @Component({
   selector: 'app-gardener',
@@ -17,9 +18,11 @@ export class GardenerComponent implements OnInit {
   starRating: any[] = [];
   index: any
 
-  constructor(private service: GardenerService, private toaster: ToastrService, private router: Router) { }
+  constructor(private spinner: NgxSpinnerService, private service: GardenerService, private toaster: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
+    this.spinner.show();
+
     this.service.gardenerList().subscribe(data => {
       if (data.length > 0) {
         for (let gardener in data) {
@@ -32,6 +35,7 @@ export class GardenerComponent implements OnInit {
         }
         this.gardenerList = data
       }
+      this.spinner.hide();
 
     }, err => {
       if (err instanceof HttpErrorResponse) {

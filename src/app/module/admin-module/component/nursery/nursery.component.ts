@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Nursury } from 'src/app/model/nursury';
 import { NurseryService } from 'src/app/service/nursery.service';
+import { NgxSpinnerService } from 'ngx-spinner'
 
 @Component({
   selector: 'app-nursery',
@@ -15,15 +16,17 @@ export class NurseryComponent implements OnInit {
   nurseryList: Nursury[] = [];
   nursery = new Nursury("", "", "", "", "", "", "", "", "", "");
 
-  constructor(private service: NurseryService, private toaster: ToastrService, private router: Router) { }
+  constructor(private spnner: NgxSpinnerService, private service: NurseryService, private toaster: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
+    this.spnner.show();
+
     this.service.nursuryList().subscribe(data => {
       if (data.length > 0) {
 
         this.nurseryList = data
       }
-
+      this.spnner.hide();
     }, err => {
       if (err instanceof HttpErrorResponse) {
         if (err.status == 401) {
