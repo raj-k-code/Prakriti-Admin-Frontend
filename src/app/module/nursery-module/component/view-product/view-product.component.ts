@@ -209,7 +209,6 @@ export class ViewProductComponent implements OnInit {
       if (err instanceof HttpErrorResponse) {
         if (err.status == 500) {
           this.toaster.error("Internal Server Error", "Error");
-
         }
         else if (err.status == 400) {
           this.toaster.error("Bad Request", "Error");

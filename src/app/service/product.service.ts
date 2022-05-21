@@ -11,27 +11,27 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   public viewProductList(nurseryOwnerId: any): Observable<any> {
-    let viewProductListApi = "http://localhost:3000/product/product-list-by-nurseryowner";
+    let viewProductListApi = "https://prakritee.herokuapp.com/product/product-list-by-nurseryowner";
     return this.http.post<any>(viewProductListApi, { nurseryOwnerId: nurseryOwnerId });
   }
 
   public productById(productId: any): Observable<any> {
-    let productByIdApi = "http://localhost:3000/product/product-by-id/" + productId;
+    let productByIdApi = "https://prakritee.herokuapp.com/product/product-by-id/" + productId;
     return this.http.get<any>(productByIdApi);
   }
 
   public deleteProduct(productId: any) {
-    let deleteProductApi = "http://localhost:3000/product/delete-product";
+    let deleteProductApi = "https://prakritee.herokuapp.com/product/delete-product";
     return this.http.post<any>(deleteProductApi, { productId: productId });
   }
 
   public addProduct(product: FormData) {
-    let addProductApi = "http://localhost:3000/product/add-product";
+    let addProductApi = "https://prakritee.herokuapp.com/product/add-product";
     return this.http.post<any>(addProductApi, product);
   }
 
   public editProduct(product: FormData) {
-    let editProductApi = "http://localhost:3000/product/edit-product";
+    let editProductApi = "https://prakritee.herokuapp.com/product/edit-product";
     return this.http.post<any>(editProductApi, product);
   }
 }

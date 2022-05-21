@@ -11,23 +11,23 @@ export class GardenerService {
   constructor(private http: HttpClient) { }
 
   public blockGardener(id: any) {
-    let blockGardenerPi = "http://localhost:3000/gardener/block-gardener";
+    let blockGardenerPi = "https://prakritee.herokuapp.com/gardener/block-gardener";
     return this.http.post<any>(blockGardenerPi, { gardenerId: id });
   }
 
   public unBlockGardener(id: any) {
-    let unBlockGardenerApi = "http://localhost:3000/gardener/unblock-gardener";
+    let unBlockGardenerApi = "https://prakritee.herokuapp.com/gardener/unblock-gardener";
     return this.http.post<any>(unBlockGardenerApi, { gardenerId: id });
   }
 
   public gardenerList(): Observable<Gardener[]> {
-    let gardenerListApi = "http://localhost:3000/admin/gardener/gardener-list"
+    let gardenerListApi = "https://prakritee.herokuapp.com/admin/gardener/gardener-list"
     return this.http.get<Gardener[]>(gardenerListApi);
   }
 
 
   public bookTheGardener(gardenerId: string) {
-    let bookTheGardenerApi = "http://localhost:3000/gardener/book-gardener"
+    let bookTheGardenerApi = "https://prakritee.herokuapp.com/gardener/book-gardener"
     return this.http.post<any>(bookTheGardenerApi, { nurseryId: sessionStorage.getItem('userId'), gardenerId: gardenerId });
   }
 

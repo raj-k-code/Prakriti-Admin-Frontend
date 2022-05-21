@@ -10,22 +10,22 @@ export class BlogService {
   constructor(private http: HttpClient) { }
 
   public blogList(nurseryId: any) {
-    let blogListApi = "http://localhost:3000/blog/blog-list-nurseryowner/" + nurseryId;
+    let blogListApi = "https://prakritee.herokuapp.com/blog/blog-list-nurseryowner/" + nurseryId;
     return this.http.get<Blog[]>(blogListApi)
   }
 
   public addBlog(blogData: FormData) {
-    let addBlogApi = "http://localhost:3000/blog/add";
+    let addBlogApi = "https://prakritee.herokuapp.com/blog/add";
     return this.http.post<any>(addBlogApi, blogData)
   }
 
   public blogDelete(blogId: any) {
-    let blogDeleteApi = "http://localhost:3000/blog/delete";
+    let blogDeleteApi = "https://prakritee.herokuapp.com/blog/delete";
     return this.http.post<any>(blogDeleteApi, { blogId: blogId })
   }
 
   public editBlog(blogData: FormData) {
-    let editBlogApi = "http://localhost:3000/blog/edit";
+    let editBlogApi = "https://prakritee.herokuapp.com/blog/edit";
     return this.http.post<any>(editBlogApi, blogData)
   }
 }
