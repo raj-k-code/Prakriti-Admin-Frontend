@@ -13,37 +13,37 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   public signIn(admin: Admin) {
-    let signInApi = "http://localhost:3000/admin/signin";
+    let signInApi = "https://prakritee.herokuapp.com/admin/signin";
     return this.http.post<any>(signInApi, { email: admin.email, password: admin.password });
   }
 
   public signinWithGoogle(email: any) {
-    let signinWithGoogleApi = "http://localhost:3000/admin/signin-with-google";
+    let signinWithGoogleApi = "https://prakritee.herokuapp.com/admin/signin-with-google";
     return this.http.post<any>(signinWithGoogleApi, { email: email });
   }
 
   public forgotPassword(email: any) {
-    let signInApi = "http://localhost:3000/admin/forgot-password";
+    let signInApi = "https://prakritee.herokuapp.com/admin/forgot-password";
     return this.http.post<any>(signInApi, { email: email });
   }
 
   public categoryList() {
-    let categoryListApi = "http://localhost:3000/admin/category/category-list";
+    let categoryListApi = "https://prakritee.herokuapp.com/admin/category/category-list";
     return this.http.get<any>(categoryListApi);
   }
 
   public addCategory(category: FormData) {
-    let addCategoryApi = "http://localhost:3000/admin/category/add";
+    let addCategoryApi = "https://prakritee.herokuapp.com/admin/category/add";
     return this.http.post<any>(addCategoryApi, category);
   }
 
   public deleteCategory(categeryId: any) {
-    let deleteCategoryApi = "http://localhost:3000/admin/category/delete";
+    let deleteCategoryApi = "https://prakritee.herokuapp.com/admin/category/delete";
     return this.http.post<any>(deleteCategoryApi, { categeryId: categeryId });
   }
 
   public editCategory(category: FormData) {
-    let editCategoryApi = "http://localhost:3000/admin/category/edit";
+    let editCategoryApi = "https://prakritee.herokuapp.com/admin/category/edit";
     return this.http.post<any>(editCategoryApi, category);
   }
 

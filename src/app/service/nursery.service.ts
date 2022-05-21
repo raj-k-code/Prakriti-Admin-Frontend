@@ -12,58 +12,58 @@ export class NurseryService {
   constructor(private http: HttpClient) { }
 
   public nursuryList(): Observable<Nursury[]> {
-    let nursuryListApi = "http://localhost:3000/admin/nursery/nursery-list";
+    let nursuryListApi = "https://prakritee.herokuapp.com/admin/nursery/nursery-list";
     return this.http.get<Nursury[]>(nursuryListApi);
   }
 
   public blockNursery(id: any) {
-    let blockNurseryApi = "http://localhost:3000/nurseryowner/block-nursery";
+    let blockNurseryApi = "https://prakritee.herokuapp.com/nurseryowner/block-nursery";
     return this.http.post<any>(blockNurseryApi, { nurseryownerId: id });
   }
 
 
   public unBlockNursery(id: any) {
-    let unBlockNurseryApi = "http://localhost:3000/nurseryowner/unblock-nursery";
+    let unBlockNurseryApi = "https://prakritee.herokuapp.com/nurseryowner/unblock-nursery";
     return this.http.post<any>(unBlockNurseryApi, { nurseryownerId: id });
   }
 
   public viewProductList(nurseryOwnerId: any): Observable<any> {
-    let viewProductListApi = "http://localhost:3000/product/product-list-by-nurseryowner";
+    let viewProductListApi = "https://prakritee.herokuapp.com/product/product-list-by-nurseryowner";
     return this.http.post<any>(viewProductListApi, { nurseryOwnerId: nurseryOwnerId });
   }
 
   public productById(productId: any): Observable<any> {
-    let productByIdApi = "http://localhost:3000/product/product-by-id/" + productId;
+    let productByIdApi = "https://prakritee.herokuapp.com/product/product-by-id/" + productId;
     return this.http.get<any>(productByIdApi);
   }
 
   public nursuryRequest(): Observable<Nursury[]> {
-    let nursuryRequestApi = "http://localhost:3000/nurseryowner/nursery-request";
+    let nursuryRequestApi = "https://prakritee.herokuapp.com/nurseryowner/nursery-request";
     return this.http.get<Nursury[]>(nursuryRequestApi);
   }
 
   public nursuryRequestApprove(nurseryId: any, nurseryEmail: any): Observable<any> {
-    let nursuryRequestApproveApi = "http://localhost:3000/nurseryowner/nursery-request-approve";
+    let nursuryRequestApproveApi = "https://prakritee.herokuapp.com/nurseryowner/nursery-request-approve";
     return this.http.post<any>(nursuryRequestApproveApi, { nurseryownerId: nurseryId, nurseryOwnerEmail: nurseryEmail });
   }
 
   public nursuryRequestCancel(nurseryId: any, nurseryEmail: any): Observable<any> {
-    let nursuryRequestCancelApi = "http://localhost:3000/nurseryowner/nursery-request-cancel";
+    let nursuryRequestCancelApi = "https://prakritee.herokuapp.com/nurseryowner/nursery-request-cancel";
     return this.http.post<any>(nursuryRequestCancelApi, { nurseryownerId: nurseryId, nurseryOwnerEmail: nurseryEmail });
   }
 
   public viewOrderHistory(userId: any) {
-    let viewOrderHistoryApi = "http://localhost:3000/order/view-order";
+    let viewOrderHistoryApi = "https://prakritee.herokuapp.com/order/view-order";
     return this.http.post(viewOrderHistoryApi, { userId: userId });
   }
 
   public viewProfile(nurseryId: any) {
-    let viewProfileApi = "http://localhost:3000/nurseryowner/nursery-by-id/" + nurseryId;
+    let viewProfileApi = "https://prakritee.herokuapp.com/nurseryowner/nursery-by-id/" + nurseryId;
     return this.http.get<Nursury>(viewProfileApi);
   }
 
   public updateProfile(nursery: FormData): Observable<any> {
-    let updateProfileApi = "http://localhost:3000/nurseryowner/edit";
+    let updateProfileApi = "https://prakritee.herokuapp.com/nurseryowner/edit";
     return this.http.post<any>(updateProfileApi, nursery);
   }
 }
