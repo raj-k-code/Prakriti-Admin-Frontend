@@ -31,4 +31,9 @@ export class GardenerService {
     return this.http.post<any>(bookTheGardenerApi, { nurseryId: sessionStorage.getItem('userId'), gardenerId: gardenerId });
   }
 
+  public viewProfile(id: any): Observable<Gardener> {
+    let viewProfileApi = "https://prakritee.herokuapp.com/gardener/gardner-by-id/" + id;
+    return this.http.get<Gardener>(viewProfileApi);
+  }
+
 }

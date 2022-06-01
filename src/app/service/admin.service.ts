@@ -2,9 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Admin } from '../model/admin'
-import { Category } from '../model/category';
-import { Gardener } from '../model/gardener';
-import { Nursury } from '../model/nursury';
 @Injectable({
   providedIn: 'root'
 })
@@ -47,6 +44,18 @@ export class AdminService {
     return this.http.post<any>(editCategoryApi, category);
   }
 
+  public allOrders(status: any): Observable<any> {
+    let allOrdersApi = "https://prakritee.herokuapp.com/order/latest-order";
+    return this.http.post<any>(allOrdersApi, { status: status });
+  }
 
+  public changeStatus(status: any, orderId: any): Observable<any> {
+    let allOrdersApi = "https://prakritee.herokuapp.com/order/change-order";
+    return this.http.post<any>(allOrdersApi, { status: status, orderId: orderId });
+  }
 
+  public particularOrder(orderId: any) {
+    let particularOrderApi = "https://prakritee.herokuapp.com/order/order-by-id/" + orderId;
+    return this.http.get(particularOrderApi);
+  }
 }

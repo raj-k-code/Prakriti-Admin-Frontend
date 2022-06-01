@@ -1,35 +1,44 @@
 <div class="side-menu">
-    <div class="brand-name">
-        <h1><img src="../../../assets/images/logoprikriti1.png" alt=""></h1>
-    </div>
-    <ul>
-        <li routerLink="/admin"><img src="../../../assets/images/dashboard (2).png" alt="">&nbsp;<span>Home</span></li>
-        <li routerLink="category-list"><img src="../../../assets/images/payment.png" alt="">&nbsp; <span>Categories</span>
-        </li>
+  <div class="brand-name">
+    <h1><img src="../../../../../assets/images/Group40.png" alt=""></h1>
+  </div>
+  <ul class="menu-list">
+    <li routerLink="/admin"><img src="../../../../../assets/images/dashboard2.png" alt="">&nbsp;<span>Dashboard</span>
+    </li>
+    <li routerLink="category-list"><img src="../../../../../assets/images/categories.png" alt="">&nbsp;
+      <span>Categories</span>
+    </li>
 
-        <li routerLink="nursery-list"><img src="../../../assets/images/reading-book (1).png" alt="">&nbsp;<span>Nuseries</span> </li>
-        <li routerLink="gardener-list"><img src="../../../assets/images/teacher2.png" alt="">&nbsp;<span>Gardeners</span>
-        </li>
-        <li routerLink="user-list"><img src="../../../assets/images/school.png" alt="">&nbsp;<span>Users</span> </li>
-        <li (click)="signOut()"><img src="../../../assets/images/payment.png" alt="">&nbsp;<span>Sign Out</span> </li>
-    </ul>
+    <li routerLink="nursery-list"><img src="../../../../../assets/images/nursery.png" alt="">&nbsp;<span>Nuseries</span>
+    </li>
+    <li routerLink="gardener-list"><img src="../../../../../assets/images/gardener.png"
+        alt="">&nbsp;<span>Gardeners</span>
+    </li>
+    <li routerLink="user-list"><img src="../../../../../assets/images/customer.png" alt="">&nbsp;<span>Users</span>
+    </li>
+    <li routerLink="all-orders"><img src="../../../../../assets/images/orders.png" alt="">&nbsp;<span>Orders</span>
+    </li>
+    <li (click)="signOut()"><img style="width: 40px; height: 40px; filter: invert(1);"
+        src="../../../../../assets/images/exit-regular-24.png" alt="">&nbsp;<span>Sign
+        Out</span> </li>
+  </ul>
 </div>
 
 <div class="container1">
-    <div class="header">
-        <div class="nav">
-            <div class="user">
+  <div class="header">
+    <div class="nav">
+      <div class="user">
 
-                <img style="cursor: pointer;" routerLink="query-list" src="../../../assets/images/notifications.png" alt="">
-                <div class="img-case">
-                    <img [src]="profileImage" alt="">
-                </div>
-            </div>
+        <img style="cursor: pointer;" routerLink="query-list" src="../../../assets/images/notifications.png" alt="">
+        <div class="img-case">
+          <img [src]="profileImage" alt="{{defaultImage()}}">
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <div class="container1">
-    <div class="content">
-        <router-outlet></router-outlet>
-    </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
 </div>

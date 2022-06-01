@@ -14,7 +14,9 @@ import { CategoryComponent } from './component/category/category.component';
 import { FormsModule } from '@angular/forms';
 import { OrderHistoryComponent } from './component/order-history/order-history.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { QueryListComponent } from './component/query-list/query-list.component'
+import { QueryListComponent } from './component/query-list/query-list.component';
+import { ViewOrderComponent } from './component/view-order/view-order.component';
+import { ViewParticularOdorderComponent } from './component/view-particular-odorder/view-particular-odorder.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { QueryListComponent } from './component/query-list/query-list.component'
     ViewProductComponent,
     CategoryComponent,
     OrderHistoryComponent,
-    QueryListComponent
+    QueryListComponent,
+    ViewOrderComponent,
+    ViewParticularOdorderComponent,
   ],
   imports: [
     CommonModule,
