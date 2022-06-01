@@ -19,14 +19,15 @@ export class HomeComponent implements OnInit {
       this.profileImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyw551VPZXNStb2o_1PS7LJpIVrR-qbwqyDuBj6m4Xa3ePEE9DqQVB2_U9JsMoPKRrhHE&usqp=CAU"
   }
 
-
-
-
   public signOut() {
     if (confirm("Are You Sure ?")) {
       sessionStorage.clear();
       this.router.navigate(['/']);
     }
+  }
+
+  defaultImage() {
+    sessionStorage.setItem('image', "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyw551VPZXNStb2o_1PS7LJpIVrR-qbwqyDuBj6m4Xa3ePEE9DqQVB2_U9JsMoPKRrhHE&usqp=CAU");
   }
 
 }

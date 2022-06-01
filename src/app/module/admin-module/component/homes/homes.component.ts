@@ -32,4 +32,8 @@ export class HomesComponent implements OnInit {
     }
   }
 
+  defaultImage() {
+    sessionStorage.setItem('image', "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyw551VPZXNStb2o_1PS7LJpIVrR-qbwqyDuBj6m4Xa3ePEE9DqQVB2_U9JsMoPKRrhHE&usqp=CAU");
+  }
+
 }

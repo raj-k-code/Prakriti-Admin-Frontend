@@ -1,51 +1,64 @@
 <div class="side-menu">
-    <div class="brand-name">
-        <h1><img src="../../../assets/images/logoprikriti1.png" alt=""></h1>
-    </div>
-    <ul>
-        <li routerLink="/nursery"><img src="../../../assets/images/dashboard (2).png" alt="">&nbsp;<span>Home</span></li>
-        <li routerLink="contact-us"><img src="../../../assets/images/dashboard (2).png" alt="">&nbsp;<span>Contact
+  <div class="brand-name">
+    <h1><img src="../../../../../assets/images/Group40.png" alt=""></h1>
+  </div>
+  <ul class="menu-list">
+    <li class="cursor-pointer" routerLink="/nursery"><img src="../../../../../assets/images/dashboard2.png"
+        alt="">&nbsp;<span>Home</span>
+    </li>
+    <li class="cursor-pointer" routerLink="contact-us"><img style="width: 40px; height: 40px; filter: invert(1);"
+        src="../../../../../assets/images/contact-solid-24.png" alt="">&nbsp;<span>Contact
         Us</span></li>
-        <li routerLink="product-list"><img src="../../../assets/images/payment.png" alt="">&nbsp; <span>Products</span>
-        </li>
-        <li routerLink="gardener-list"><img src="../../../assets/images/teacher2.png" alt="">&nbsp;<span>Gardeners</span>
-        </li>
-        <li routerLink="blog-list"><img src="../../../assets/images/teacher2.png" alt="">&nbsp;<span>Blogs</span>
-        </li>
-    </ul>
+    <li class="cursor-pointer" routerLink="product-list"><img src="../../../../../assets/images/products.png"
+        alt="">&nbsp;
+      <span>Products</span>
+    </li>
+    <li class="cursor-pointer" routerLink="gardener"><img src="../../../../../assets/images/gardener.png"
+        alt="">&nbsp;<span>Gardeners</span>
+    </li>
+    <li class="cursor-pointer" routerLink="blog-list"><img src="../../../../../assets/images/Blog.png"
+        alt="">&nbsp;<span>Blogs</span>
+    </li>
+    <li class="cursor-pointer" routerLink="order-history"><img src="../../../../../assets/images/orders.png"
+        alt="">&nbsp;<span>Orders</span>
+    </li>
+  </ul>
 </div>
 
 <div class="container1">
-    <div class="header">
-        <div class="nav">
-            <div class="user">
-                <!-- <a href="#" class="btn">Add New</a> -->
-                <!-- <img src="../../../assets/images/notifications.png" alt=""> -->
-                <!-- <div class="img-case">
+  <div class="header">
+    <div class="nav">
+      <div class="user">
+        <!-- <a href="#" class="btn">Add New</a> -->
+        <!-- <img src="../../../assets/images/notifications.png" alt=""> -->
+        <!-- <div class="img-case">
                     <img [src]="profileImage" alt="">
                 </div> -->
-                <div class="nav-item dropdown mr-5">
-                    <a data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="{{profileImage}}" class="img-case" alt="Image"> <b class="caret"></b></a>
-                    <div class="dropdown-menu">
-                        <a routerLink="view-profile" class="dropdown-item">
-                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABiElEQVRIS7WVgVHDMAxF2wmACSgTABuECYAJKBvABHQDYALKBMAEhAlaNigTABPAfzm7pxrZSXrEd7oktqwvfX8r49HAYzxw/FEXgDMlcSo7CkZOy2DPer6UkiwBVNr4IJu0VLnS+qWs9vxyADM53/Sk70r+9+keDwDH257Bo/u1Xu7s3hQAWl63DB63nVi6UgD43HcAvjUHbfOwNg3fO44vMQ7ivAVALU+Z7P+ULr8SledaR2EbMiW7iwzAnua/krVdfX9m/B81T5UbAGj78J8AiHWcAvxkgjPdl6J1bHsGJQDomckonQGVfENTbjSxLUCJokIcd+lds7SWzof8Id9atgrhJnpWMk/SuLiH7MkU/TNPcG8AghzT++DKlABkaLNCCVBXGlCxMA5US4XNaGsVc/mgoPQOxP0cMn1ragCKrQK/9IZGBb2ZasiafwS+VkmtzS4msk1H9e5K8Y9WCQ2KckqJycA5FNWGpvVr118mSoKW2ErQOYePgpqmlhtdAEr7W9cGB/gFF0hJGYa8DoAAAAAASUVORK5CYII="
-                            /> Profile
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a style="cursor: pointer;" (click)="signOut()" class="dropdown-item">
-                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAx0lEQVRIS2NkoDFgpLH5DHS3wAHoo/lArECmzx4A9SUC8QGYfnQfgBTIk2k4TNsHIEMQlwX/oRLkBh2GfnSDhr8Fs4FBmA3Ev3DEE8EgIhS/IANOAHEQED/HopgqFoDMBRkOsgRkGTIgaAFMASGfgORBwQQKrjlIigfeAkIuh7mQ7CAixgKKIplQRqM4mRKygBgfgtTAS4jhV1Q8AHqP0uL6IdAMBVhYogeRA1BiAQWWgAxPAOIDuCwgFIkky5NbsRBtEc0tAACqFDYZq5G04wAAAABJRU5ErkJggg=="
-                            /> Sign-out
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <div class="nav-item dropdown mr-5">
+          <a data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img src="{{profileImage}}"
+              class="img-case" alt="{{defaultImage()}}"> <b class="caret"></b></a>
+          <div class="dropdown-menu">
+            <a routerLink="view-profile" class="dropdown-item">
+              <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABiElEQVRIS7WVgVHDMAxF2wmACSgTABuECYAJKBvABHQDYALKBMAEhAlaNigTABPAfzm7pxrZSXrEd7oktqwvfX8r49HAYzxw/FEXgDMlcSo7CkZOy2DPer6UkiwBVNr4IJu0VLnS+qWs9vxyADM53/Sk70r+9+keDwDH257Bo/u1Xu7s3hQAWl63DB63nVi6UgD43HcAvjUHbfOwNg3fO44vMQ7ivAVALU+Z7P+ULr8SledaR2EbMiW7iwzAnua/krVdfX9m/B81T5UbAGj78J8AiHWcAvxkgjPdl6J1bHsGJQDomckonQGVfENTbjSxLUCJokIcd+lds7SWzof8Id9atgrhJnpWMk/SuLiH7MkU/TNPcG8AghzT++DKlABkaLNCCVBXGlCxMA5US4XNaGsVc/mgoPQOxP0cMn1ragCKrQK/9IZGBb2ZasiafwS+VkmtzS4msk1H9e5K8Y9WCQ2KckqJycA5FNWGpvVr118mSoKW2ErQOYePgpqmlhtdAEr7W9cGB/gFF0hJGYa8DoAAAAAASUVORK5CYII=" />
+              Profile
+            </a>
+            <div class="dropdown-divider"></div>
+            <a style="cursor: pointer;" (click)="signOut()" class="dropdown-item">
+              <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAx0lEQVRIS2NkoDFgpLH5DHS3wAHoo/lArECmzx4A9SUC8QGYfnQfgBTIk2k4TNsHIEMQlwX/oRLkBh2GfnSDhr8Fs4FBmA3Ev3DEE8EgIhS/IANOAHEQED/HopgqFoDMBRkOsgRkGTIgaAFMASGfgORBwQQKrjlIigfeAkIuh7mQ7CAixgKKIplQRqM4mRKygBgfgtTAS4jhV1Q8AHqP0uL6IdAMBVhYogeRA1BiAQWWgAxPAOIDuCwgFIkky5NbsRBtEc0tAACqFDYZq5G04wAAAABJRU5ErkJggg==" />
+              Sign-out
+            </a>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <div class="container1">
-    <div class="content">
-        <router-outlet></router-outlet>
-    </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 
 <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>

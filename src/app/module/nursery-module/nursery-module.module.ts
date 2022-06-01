@@ -13,6 +13,9 @@ import { ViewProfileComponent } from './component/view-profile/view-profile.comp
 import { NgxSpinnerModule } from 'ngx-spinner'
 import { ContactUsComponent } from './component/contact-us/contact-us.component';
 import { BlogListComponent } from './component/blog-list/blog-list.component';
+import { OrdersHistoryComponent } from './component/orders-history/orders-history.component';
+import { GardenerComponent } from './component/gardener/gardener.component';
+import { GardenerProfileComponent } from './component/gardener-profile/gardener-profile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { BlogListComponent } from './component/blog-list/blog-list.component';
     GardenerListComponent,
     ViewProfileComponent,
     ContactUsComponent,
-    BlogListComponent
+    BlogListComponent,
+    OrdersHistoryComponent,
+    GardenerComponent,
+    GardenerProfileComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +37,7 @@ import { BlogListComponent } from './component/blog-list/blog-list.component';
     NgxPaginationModule,
     NgbModule,
     FormsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
   ]
 })
 export class NurseryModuleModule {

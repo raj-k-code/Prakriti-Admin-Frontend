@@ -66,4 +66,9 @@ export class NurseryService {
     let updateProfileApi = "https://prakritee.herokuapp.com/nurseryowner/edit";
     return this.http.post<any>(updateProfileApi, nursery);
   }
+
+  public orderHistory(): Observable<any> {
+    let orderHistoryApi = "https://prakritee.herokuapp.com/order/order-history-by-nursery";
+    return this.http.post<any>(orderHistoryApi, { nurseryId: sessionStorage.getItem('userId') });
+  }
 }

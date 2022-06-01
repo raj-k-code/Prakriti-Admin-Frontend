@@ -9,6 +9,8 @@ import { NurseryComponent } from './component/nursery/nursery.component';
 import { OrderHistoryComponent } from './component/order-history/order-history.component';
 import { QueryListComponent } from './component/query-list/query-list.component';
 import { UserComponent } from './component/user/user.component';
+import { ViewOrderComponent } from './component/view-order/view-order.component';
+import { ViewParticularOdorderComponent } from './component/view-particular-odorder/view-particular-odorder.component';
 import { ViewProductComponent } from './component/view-product/view-product.component';
 
 const routes: Routes = [
@@ -56,6 +58,16 @@ const routes: Routes = [
         path: "query-list",
         component: QueryListComponent,
         canActivate: [AdminGuardService],
+      },
+      {
+        path: "all-orders",
+        component: ViewOrderComponent,
+        canActivate: [AdminGuardService]
+      },
+      {
+        path: "all-orders/view-order-by-id/:id",
+        component: ViewParticularOdorderComponent,
+        canActivate: [AdminGuardService]
       }
 
     ]

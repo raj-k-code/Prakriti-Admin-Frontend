@@ -1,0 +1,95 @@
+<!-- blogs section Starts -->
+<section class="services section-padding" id="services">
+
+  <div class="container">
+    <div class="card">
+      <div class="col-sm-12">
+        <div class="card-block">
+          <h4 class="m-b-20 p-b-5 b-b-default f-w-600 font-weight-bold">Order Details</h4>
+          <div class="row">
+            <div class="col-sm-2">
+              <p class="m-b-10 f-w-600">Order Id</p>
+              <h6 class="text-muted f-w-400">{{orderData._id}}</h6>
+            </div>
+            <div class="col-sm-2">
+              <p class="m-b-10 f-w-600">Address</p>
+              <h6 class="text-muted f-w-400">{{orderData.Address}}</h6>
+            </div>
+            <div class="col-sm-2">
+              <p class="m-b-10 f-w-600">Order Date</p>
+              <h6 class="text-muted f-w-400">{{orderData.createdAt | date}}</h6>
+            </div>
+            <div class="col-sm-2">
+              <p class="m-b-10 f-w-600">Order Status</p>
+              <h6 class="text-muted f-w-400">{{orderData.orderStatus}}</h6>
+            </div>
+            <div class="col-sm-2">
+              <p class="m-b-10 f-w-600">Total Amount</p>
+              <h6 class="text-muted f-w-400 text-muted font-weight-bold">₹{{orderData.total}}</h6>
+            </div>
+            <div class="col-sm-2">
+              <p class="m-b-10 f-w-600">Payment Method</p>
+              <h6 class="text-muted f-w-400 text-muted font-weight-bold">₹{{orderData.paymentMethod}}</h6>
+            </div>
+            <!-- <div class="col-sm-2">
+                <a href="#" class="btn text-white btn-success main-btn">Re-order</a>
+
+              </div> -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- Ordered product      -->
+<div class="container my-5">
+  <div class="text-center mb-5">
+    <h4 class="font-weight-bold">Products <span class="headline">Ordered</span></h4>
+  </div>
+
+  <div class="m-2 " style="display: inline-block;">
+    <label *ngIf="orderData.orderStatus != 'delevered'" for="">Change Order Status: </label>
+    <select (change)="setStatus($event,orderData._id)" *ngIf="orderData.orderStatus != 'delevered'" name="catName"
+      [(ngModel)]="orderData.orderStatus" class="custom-select" id="inputGroupSelect01"
+      [ngModelOptions]="{ standalone: true }">
+      <option [disabled]="true" value="pendding">Pendding
+      </option>
+      <option [disabled]="(orderData.orderStatus == 'shipped')" value="shipped">
+        Shipped
+      </option>
+      <!-- [disabled]="(order.orderStatus == 'pendding')" -->
+      <option [disabled]="(orderData.orderStatus == 'pendding')" value="delevered">
+        Delevered
+      </option>
+    </select>
+  </div>
+
+  <div *ngFor="let product of orderData.productList; index as i"
+    class="my-5 py-4 px-5 bg-light d-sm-flex align-items-center justify-content-between">
+    <div style="cursor: pointer;" class="text-center">
+      <img src="{{product.productId.productImage}}" style="height: 100px; width: 100px;" class="img-fluid" alt="...">
+    </div>
+    <div class="text-center ">
+      <span class="f-w-600">Name</span>
+      <small class="d-block text-muted my-3 f-w-600">{{product.productId.productName}}</small>
+    </div>
+    <div class="text-center ">
+      <span class="f-w-600">Qty</span>
+      <small class="d-block my-3 text-muted f-w-600">{{product.qty}}</small>
+    </div>
+    <div class="text-center">
+      <span class="f-w-600">Price</span>
+      <h4 class="my-2 text-muted font-weight-bold">₹{{product.productId.productPrice}}</h4>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- SPINNER -->
+<ngx-spinner bdColor="white" template="<img style='height:300px;width:300px;' src='../../assets/images/spinner.gif' />">
+</ngx-spinner>

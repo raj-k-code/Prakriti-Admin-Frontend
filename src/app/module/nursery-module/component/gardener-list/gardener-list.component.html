@@ -25,34 +25,35 @@
 </table> -->
 
 <div class="container">
-    <div class="row">
-        <div class="col-sm-6 offset-sm-3 mt-4 mb-4">
-            <h2 class="text-center">Our Expert Gardeners</h2>
-            <p class="text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-        </div>
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3 mt-4 mb-4">
+      <h2 class="text-center">Our Expert Gardeners</h2>
+      <p class="text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
     </div>
+  </div>
 
-    <div class="row">
-        <div *ngFor="let gardener of gardenerList; index as i" class="col-md-4">
-            <div class="card-box text-center">
-                <div class="user-pic">
-                    <img src="{{gardener.gardenerImage}}" class="img-fluid" alt="User Pic">
-                </div>
-                <ngb-rating [max]="5" [(rate)]="starRating[i]" [readonly]="true"></ngb-rating>
-                <h4>{{gardener.gardenerName | uppercase}}</h4>
-                <h6>{{gardener.gardenerMobile }}</h6>
-                <hr>
-                <p>{{gardener.gardenerAddress}}</p>
-                <hr>
-                <a (click)="bookGardener(gardener._id)" style="--clr:#77CD5A; --1:0;" class="btn btn-primary"><span>Book
-            Now</span></a>
-            </div>
+  <div class="row">
+    <div *ngFor="let gardener of gardenerList; index as i" class="col-md-4">
+      <div class="card-box text-center">
+        <div class="user-pic">
+          <img src="{{gardener.gardenerImage}}" class="img-fluid" alt="User Pic">
         </div>
+        <ngb-rating [max]="5" [(rate)]="starRating[i]" [readonly]="true"></ngb-rating>
+        <h4>{{gardener.gardenerName | uppercase}}</h4>
+        <h6>{{gardener.gardenerMobile }}</h6>
+        <hr>
+        <p>{{gardener.gardenerAddress}}</p>
+        <hr>
+        <a (click)="bookGardener(gardener._id)" style="--clr:#77CD5A; --1:0;" class="btn btn-primary"><span>Book
+            Now</span></a>
+      </div>
     </div>
+  </div>
 </div>
 
 
 
 
 <!-- SPINNER -->
-<ngx-spinner bdColor="white" template="<img src='https://gardendevices.com/wp-content/uploads/2020/09/garden-loader.gif' />"></ngx-spinner>
+<ngx-spinner bdColor="white"
+  template="<img style='height:300px;width:300px;' src='../../../../../assets/images/spinner.gif' />"></ngx-spinner>

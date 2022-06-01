@@ -1,0 +1,73 @@
+<!-- Ordered product      -->
+<div class="container my-5">
+  <div class="text-center mb-5">
+    <h4 class="font-weight-bold ">All Orders</h4>
+  </div>
+  <!-- [ngModelOptions]="{ standalone: true }" -->
+
+  <div class="text-right display-flex">
+    <label class="" for="">Filter: </label>
+    <div class="m-2 " style="display: inline-block;">
+      <select name="catName" [(ngModel)]="status" [ngModelOptions]="{ standalone: true }" class="custom-select"
+        id="inputGroupSelect01">
+        <option (click)="orderType()" value="">
+          All Orders
+        </option>
+        <option (click)="orderType()" value="pendding">
+          Pendding
+        </option>
+        <option (click)="orderType()" value="shipped">
+          Shipped
+        </option>
+        <option (click)="orderType()" value="delevered">
+          Delevered
+        </option>
+      </select>
+    </div>
+  </div>
+  <div *ngIf="orderData.length > 0; else elseBlock">
+    <div class="my-5 py-4 px-5 bg-light d-sm-flex align-items-center justify-content-between"
+      *ngFor="let order of orderData; index as i">
+      <div class="text-center ">
+        <span class="f-w-600">Name</span>
+        <small class="d-block text-muted my-3 f-w-600">{{order.Name}}</small>
+      </div>
+      <div class="text-center">
+        <span class="f-w-600">Total Price</span>
+        <small class="d-block my-3 text-muted f-w-600">₹{{order.total}}</small>
+      </div>
+      <div class="text-center">
+        <span class="f-w-600">Order Status</span>
+        <h4 class="my-2 text-muted font-weight-bold">{{order.orderStatus}}</h4>
+      </div>
+      <div class="text-center">
+        <div class="m-2 " style="display: inline-block;">
+          <select (change)="setStatus($event,order._id)" *ngIf="order.orderStatus != 'delevered'" name="catName"
+            [(ngModel)]="order.orderStatus" class="custom-select" id="inputGroupSelect01"
+            [ngModelOptions]="{ standalone: true }">
+            <option [disabled]="true" value="pendding">Pendding
+            </option>
+            <option [disabled]="(order.orderStatus == 'shipped')" value="shipped">
+              Shipped
+            </option>
+            <!-- [disabled]="(order.orderStatus == 'pendding')" -->
+            <option [disabled]="(order.orderStatus == 'pendding')" value="delevered">
+              Delevered
+            </option>
+          </select>
+        </div>
+        <button routerLink="view-order-by-id/{{order._id}}" class="btn btn-primary">View</button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #elseBlock>
+    <h2 style="text-align: center;">No Order Found</h2>
+  </ng-template>
+</div>
+
+
+<!-- SPINNER -->
+<ngx-spinner bdColor="white"
+  template="<img style='height:300px;width:300px;' src='https://gardendevices.com/wp-content/uploads/2020/09/garden-loader.gif' />">
+</ngx-spinner>

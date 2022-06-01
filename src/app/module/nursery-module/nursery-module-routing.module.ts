@@ -6,6 +6,9 @@ import { BlogListComponent } from './component/blog-list/blog-list.component';
 import { ContactUsComponent } from './component/contact-us/contact-us.component';
 import { DefaultComponent } from './component/default/default.component';
 import { GardenerListComponent } from './component/gardener-list/gardener-list.component';
+import { GardenerProfileComponent } from './component/gardener-profile/gardener-profile.component';
+import { GardenerComponent } from './component/gardener/gardener.component';
+import { OrdersHistoryComponent } from './component/orders-history/orders-history.component';
 import { ViewProductComponent } from './component/view-product/view-product.component';
 import { ViewProfileComponent } from './component/view-profile/view-profile.component';
 
@@ -31,6 +34,15 @@ const routes: Routes = [
         canActivate: [NurseryGuardService]
       },
       {
+        path: "gardener",
+        component: GardenerComponent,
+        canActivate: [NurseryGuardService]
+      },
+      {
+        path: "gardener/gardener-profile/:id",
+        component: GardenerProfileComponent,
+      },
+      {
         path: "view-profile",
         component: ViewProfileComponent,
         canActivate: [NurseryGuardService]
@@ -43,6 +55,11 @@ const routes: Routes = [
       {
         path: "blog-list",
         component: BlogListComponent,
+        canActivate: [NurseryGuardService]
+      },
+      {
+        path: "order-history",
+        component: OrdersHistoryComponent,
         canActivate: [NurseryGuardService]
       }
 
