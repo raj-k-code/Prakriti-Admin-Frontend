@@ -54,7 +54,7 @@ export class ViewProductComponent implements OnInit {
           total = total + rating.rate;
         }
 
-        this.starRating = total / 5;
+        this.starRating = total / data.productRating.length;
 
         this.product = data;
         console.log(this.product);
