@@ -1,7 +1,5 @@
 <div class="side-menu">
-  <div class="brand-name">
-    <h1><img src="../../../../../assets/images/Group40.png" alt=""></h1>
-  </div>
+
   <ul class="menu-list">
     <li class="cursor-pointer" routerLink="/admin"><img src="../../../../../assets/images/dashboard2.png"
         alt="">&nbsp;<span>Dashboard</span>
@@ -32,12 +30,19 @@
 <div class="container1">
   <div class="header">
     <div class="nav">
+      <div class="brand-name">
+        <h1><img src="../../../../../assets/images/Group40.png" alt=""></h1>
+      </div>
       <div class="user">
 
-        <img style="cursor: pointer;" routerLink="query-list" src="../../../assets/images/notifications.png" alt="">
-        <div class="img-case">
-          <img [src]="profileImage" alt="{{defaultImage()}}">
-        </div>
+        <!--
+        <div class="img-case"> -->
+
+        <!-- </div> -->
+        <img style="cursor: pointer; right: 0;" routerLink="query-list" src="../../../assets/images/notifications.png"
+          alt="">
+        <img class="" [src]="profileImage" alt="{{defaultImage()}}">
+
       </div>
     </div>
   </div>
