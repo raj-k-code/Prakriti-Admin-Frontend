@@ -12,8 +12,8 @@
               <th>Status</th>
             </tr>
           </thead>
-          <tbody>
-            <tr *ngFor="let nursery of nurseryList; index as i" class="candidates-list">
+          <tbody class="">
+            <tr *ngFor="let nursery of nurseryList; index as i" class="candidates-list ">
               <td class="title">
                 <div class="thumb">
                   <img (click)="viewProfile(nursery)" style="cursor: pointer;" data-toggle="modal"
@@ -29,8 +29,8 @@
                     </div>
                     <div class="candidate-list-option">
                       <ul class="list-unstyled">
-                        <li><i class="fa fa-mobile" aria-hidden="true"></i> {{nursery.nurseryOwnerMobile}}</li>
-                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{nursery.nurseryAddress}}</li>
+                        <li><i class="fa fa-mobile text-primary" aria-hidden="true"></i> {{nursery.nurseryOwnerMobile}}</li>
+                        <li><i class="fa fa-map-marker text-success"aria-hidden="true"></i> {{nursery.nurseryAddress}}</li>
                       </ul>
                     </div>
                   </div>
@@ -133,4 +133,4 @@
 
 <!-- SPINNER -->
 <ngx-spinner bdColor="white"
-  template="<img style='width=300px; height=300px' src='../../../../../assets/images/spinner.gif' />"></ngx-spinner>
+  template="<img style='width:300px; height:300px' src='../../../../../assets/images/spinner.gif' />"></ngx-spinner>

@@ -1,25 +1,25 @@
 <!-- Ordered product      -->
 <div class="container my-5">
-  <div class="text-center mb-5">
-    <h2 class="">All Sold <span class="headline">Product</span></h2>
+  <div class="text-center mb-5 mt-5">
+    <h2 class=" mt-5">All Sold <span class="headline">Product</span></h2>
   </div>
   <div *ngFor="let order of orderData; index as i">
     <div *ngFor="let product of order.productList; index as i"
-      class="my-5 py-4 px-5 bg-light d-sm-flex align-items-center justify-content-between">
+      class="my-4 py-4 px-5 bg-light1 d-sm-flex align-items-center justify-content-between">
       <div class="text-center">
         <img src="{{product.productId.productImage}}" style="height: 100px; width: 100px;" class="img-fluid" alt="...">
       </div>
       <div class="text-center ">
         <span class="f-w-600">Name</span>
-        <small class="d-block text-muted my-3 f-w-600">{{product.productId.productName}}</small>
+        <small class="d-block  my-3 f-w-600">{{product.productId.productName}}</small>
       </div>
       <div class="text-center ">
         <span class="f-w-600">Qty</span>
-        <small class="d-block my-3 text-muted f-w-600">{{product.qty}}</small>
+        <small class="d-block my-3  f-w-600">{{product.qty}}</small>
       </div>
       <div class="text-center">
         <span class="f-w-600">Price</span>
-        <small class="d-block my-3 text-muted f-w-600">₹{{product.productId.productPrice}}</small>
+        <small class="d-block my-3  f-w-600">₹{{product.productId.productPrice}}</small>
       </div>
       <div class="text-center">
         <span class="f-w-600">Order Date</span>
