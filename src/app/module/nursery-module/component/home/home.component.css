@@ -96,11 +96,14 @@ td {
 
 .side-menu {
   position: fixed;
-  background: #54c254;
+  /* background: #54c254; */
   width: 20vw;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 0 8px gray;
+  border-top-left-radius: 30px;
+  margin-left: 10px;
 }
 
 .side-menu .brand-name {
@@ -111,14 +114,14 @@ td {
 }
 
 .side-menu li {
-  font-size: 24px;
+  font-size: 18px;
   padding: 10px 40px;
   color: white;
   display: flex;
   align-items: center;
 }
 
-.side-menu li:hover {
+.side-menu li {
   /* background: white; */
   color: #000000;
 }
@@ -141,7 +144,7 @@ td {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -352,4 +355,7 @@ td {
   line-height: 16px;
   vertical-align: middle;
   margin-top: -2px;
+}
+.new{
+  margin-top: 20%;
 }

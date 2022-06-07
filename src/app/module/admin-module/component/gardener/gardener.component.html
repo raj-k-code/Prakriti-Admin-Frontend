@@ -1,15 +1,16 @@
-<div class="container mt-3 mb-4">
+<div class="container mtop mb-4">
   <div class="row">
     <div class="col-md-12">
       <div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
         <table class="table table-hover manage-candidates-top mb-0">
           <thead>
-            <tr>
+          <tr>
               <th>Gardener</th>
               <th>Rating</th>
               <th>Join Date</th>
               <th>Status</th>
             </tr>
+            
           </thead>
           <tbody>
             <tr *ngFor="let gardener of gardenerList; index as i" class="candidates-list">
@@ -28,8 +29,8 @@
                     </div>
                     <div class="candidate-list-option">
                       <ul class="list-unstyled">
-                        <li><i class="fa fa-mobile" aria-hidden="true"></i> {{gardener.gardenerMobile}}</li>
-                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{gardener.gardenerAddress}}</li>
+                        <li><i class="fa fa-mobile text-primary" aria-hidden="true"></i> {{gardener.gardenerMobile}}</li>
+                        <li><i class="fa fa-map-marker text-success"></i> {{gardener.gardenerAddress}}</li>
                       </ul>
                     </div>
                   </div>
@@ -141,4 +142,4 @@
 
 <!-- SPINNER -->
 <ngx-spinner bdColor="white"
-  template="<img style='width=300px; height=300px' src='../../../../../assets/images/spinner.gif' />"></ngx-spinner>
+  template="<img style='width:300px; height:300px' src='../../../../../assets/images/spinner.gif' />"></ngx-spinner>

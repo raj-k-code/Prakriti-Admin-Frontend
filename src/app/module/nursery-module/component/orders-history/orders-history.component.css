@@ -133,9 +133,7 @@ h6 {
     font-family: 'Montserrat', sans-serif;
 }
 
-body {
-    background: #f1fbff;
-}
+
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .carousel-caption {
@@ -247,4 +245,9 @@ ngb-rating {
     color: #FFC107;
     font-size: 50px;
     text-align: center;
+}
+.bg-light1{
+    background-color: white;
+    /* border-radius: 20px; */
+    box-shadow: 0 0 5px  gray;
 }
