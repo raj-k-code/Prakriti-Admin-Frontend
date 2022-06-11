@@ -1,35 +1,36 @@
 <div class="container mt-3">
-    <h2 *ngIf="orderData.length > 0">Order History</h2>
-    <div *ngIf="orderData.length > 0" class="box">
-        <table class="table" style="margin-top: 30px;">
-            <thead class="table" style="background-color:rgb(74, 199, 74) ;">
-                <tr>
-                    <th>Order Id</th>
-                    <th>Order Date</th>
-                    <th>Totel Products</th>
-                    <th>Total Amount</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let order of orderData">
-                    <td>{{order._id}}</td>
-                    <td>{{order.createdAt | date}}</td>
-                    <td>{{order.productList.length}}</td>
-                    <td>{{order.total}}</td>
-                    <td>{{order.orderStatus}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <h2 *ngIf="orderData.length > 0">Order History</h2>
+  <div *ngIf="orderData.length > 0" class="box">
+    <table class="table" style="margin-top: 30px;">
+      <thead class="table" style="background-color:rgb(74, 199, 74) ;">
+        <tr>
+          <th>Order Id</th>
+          <th>Order Date</th>
+          <th>Totel Products</th>
+          <th>Total Amount</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orderData">
+          <td>{{order._id}}</td>
+          <td>{{order.createdAt | date}}</td>
+          <td>{{order.productList.length}}</td>
+          <td>{{order.total}}</td>
+          <td>{{order.orderStatus}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-    <div *ngIf="orderData.length == 0" class="row">
-        <div class="col">
-            <h2>Order History Is Empty</h2>
-        </div>
+  <div *ngIf="orderData.length == 0" class="row">
+    <div class="col">
+      <h2>Order History Is Empty</h2>
     </div>
+  </div>
 
 </div>
 
 <!-- SPINNER -->
-<ngx-spinner bdColor="white" template="<img src='https://gardendevices.com/wp-content/uploads/2020/09/garden-loader.gif' />"></ngx-spinner>
+<ngx-spinner bdColor="white"
+  template="<img style='width:300px; height:300px' src='../../../../../assets/images/spinner.gif' />"></ngx-spinner>

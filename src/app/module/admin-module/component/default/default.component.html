@@ -38,15 +38,12 @@
         </div>
       </div>
     </div>
-
     <hr>
     <div class="row">
       <div class="col m-5">
         <h1 style="text-align: center;">New Nurseries Request</h1>
       </div>
     </div>
-
-
     <div *ngIf="requestList.length > 0; else elseBlock" class="row">
       <div class="col-md-12">
         <div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
@@ -92,13 +89,17 @@
                   <span class="candidate-list-time order-2">{{nursery.JoinDate | date}}</span>
                 </td>
                 <td>
-                  <a style="cursor: pointer;" (click)="approve(nursery,i)" class="text-success"><i class="fa fa-check"
+                  <img style="cursor: pointer;" (click)="approve(nursery,i)"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAYAAACMRWrdAAACCElEQVRoQ+2Wy1LCMBSGT2jquHKpjnLXpU8gwrjxytYn9BUcxcvGy+ALuHEhV5EZfASaEptCGcRiS2bSFOawY5rk5Pu/0wMElvRDlpQLEGzRzKIxNBaTBLAVYyIi9DXQWOioYrIwMmMnn7BLLXrZp+ziIQ1d1fyRgAkow6IvBMgmcGhbhnV4n4WGSjjlYL+gXBLeA4PtX2egvrBguqBEYMqM6YRSBqYbSglYHKBCgx21YWvVhrWrHLz/98KftWEnYdEnIGTbHROcf9srrHCXgg+Vg8Lv7MB37LgJOdM2HznhK7bJirMuedqAbGLgjHRCksPhx7+AspLq6TcrsECwcs18c0bM3vAA3htQVqikoTZ5YLkFeWD02TPlrOs660rT66K0FgwmLm3TV2eAbozaqzNIsOJtDpriu58pTljhJg+tKEGmawWCiQ2uER848Wy6/eIAFXp4iIXutOvTqvMOrbvmwDHGwSAEUqM27VoJdqD6r1LYLghlzDvs77s0euIMiriY8u46F5jYdF6HDOG0Oh4UMYSaqxUnW2AMJ1oyBoPCrz3nNuYdIn7fDApWJQmdsH0f5TppsCgvKVMLwWRS07kHjelMX6Y2GpNJTeceNKYzfZnaaEwmNZ170JjO9GVqozGZ1HTuQWM605epjcZkUtO5B43pTF+mNhqTSU3nHjSmM32Z2ktr7AcpHrw3R80bHwAAAABJRU5ErkJggg==" />
+                  <!-- <a style="cursor: pointer;" (click)="approve(nursery,i)" class="text-success"><i class="fa fa-check"
                       aria-hidden="true"></i>
-                  </a>
+                  </a> -->
                 </td>
                 <td>
-                  <a (click)="cancel(nursery,i)" style="cursor: pointer;" class="text-danger"><i class="fa fa-times"
-                      aria-hidden="true"></i></a>
+                  <img (click)="cancel(nursery,i)" style="cursor: pointer;"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAYAAACMRWrdAAABh0lEQVRoQ+2XQVLDMAxFra46XIDJuhwETkJ7MsJJ4CBknRt0uoohzKQtDUm+rFRxO79rfcvvf9V2JNzpT+6UKxDs1pJlYkwsEwc4ipkEAW9Dldj6qX4+fBWf8Oo/hSkazfpDtTDYelNvVyJvIUq5rx53SPOHTV0Gkdcmxt2hKkpEM1cNBNa6vgrycWwKwHVQnaYJ8UWbtgUSAmsbXG50LLl+bXzfV8XWslGtFgZD4XKAaveqApuCywUqCWwILoRG2oPi9D/0H7/zcVUn1ol76ZyvGpeFSk5sFC4DqCuB4fec9qTT1F9pFJeHSwL77/T7dfPP4bEsnBps7EjXXOKasUqpVYEh91QucDAYAjV4WgJvy5RUxjQQWP8RPH1P3cwj+PTZMg11mVy2ny3dRlM+GlM0c4wlNIpzNPJeg2Dejlv7MTGrg956JubtuLUfE7M66K1nYt6OW/sxMauD3nom5u24tR8TszrorWdi3o5b+zExq4Peeibm7bi1HxOzOuitZ2Lejlv7fQNnt8M3+veMiAAAAABJRU5ErkJggg==" />
+                  <!-- <a (click)="cancel(nursery,i)" style="cursor: pointer;" class="text-danger"><i class="fa fa-times"
+                      aria-hidden="true"></i></a> -->
                 </td>
               </tr>
             </tbody>
@@ -113,80 +114,10 @@
         </div>
       </div>
     </ng-template>
-
   </div>
 </div>
 
 
 <!-- SPINNER -->
 <ngx-spinner bdColor="white"
-  template="<img style='width=300px; height=300px' src='../../../../../assets/images/spinner.gif' />"></ngx-spinner>
-
-
-<!-- <div class="container mt-3 mb-4">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
-                <table class="table table-hover manage-candidates-top mb-0">
-                    <thead>
-                        <tr>
-                            <th>Nursery</th>
-                            <th>Nursery Name</th>
-                            <th>All Products</th>
-                            <th>Join Date</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let nursery of requestList; index as i" class="candidates-list">
-                            <td class="title">
-                                <div class="thumb">
-                                    <img style="cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter"
-                                        class="img-fluid" src="{{nursery.Image}}" alt="">
-                                </div>
-                                <div class="candidate-list-details">
-                                    <div class="candidate-list-info">
-                                        <div class="candidate-list-title">
-                                            <h5 style="cursor: pointer;" data-toggle="modal"
-                                                data-target="#exampleModalCenter" class="mb-0">
-                                                <a>{{nursery.nurseryOwnerName}}</a>
-                                            </h5>
-                                        </div>
-                                        <div class="candidate-list-option">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fa fa-mobile" aria-hidden="true"></i>
-                                                    {{nursery.nurseryOwnerMobile}}</li>
-                                                <li><i class="fa fa-map-marker" aria-hidden="true"></i>
-                                                    {{nursery.nurseryAddress}}</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                {{nursery.nurseryName}}
-                            </td>
-                            <td>
-                                <i routerLink="product-list/{{nursery._id}}" class="fa fa-eye" aria-hidden="true"></i>
-                            </td>
-                            <td>
-                                <span class="candidate-list-time order-2">{{nursery.JoinDate | date}}</span>
-                            </td>
-                            <td>
-                                <a style="cursor: pointer;" class="text-success" data-toggle="tooltip" title=""
-                                    data-original-title="unblock"><i style="font-size: 30px;" class="fa fa-unlock"
-                                        aria-hidden="true"></i>
-                                </a>
-
-                                <a style="cursor: pointer;" class="text-danger" data-toggle="tooltip" title=""
-                                    data-original-title="block"><i style="font-size: 30px;" class="fa fa-lock"
-                                        aria-hidden="true"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div> -->
+  template="<img style='width:300px; height:300px' src='../../../../../assets/images/spinner.gif' />"></ngx-spinner>

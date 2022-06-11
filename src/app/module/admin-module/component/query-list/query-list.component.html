@@ -1,85 +1,94 @@
 <div class="container mt-3 mb-4">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
-                <table class="table table-hover manage-candidates-top mb-0">
-                    <thead>
-                        <tr>
-                            <th style="text-align: center;">Details</th>
-                            <th>Query</th>
-                            <th>Response/Reject</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let query of queryList | paginate: { itemsPerPage: 6, currentPage: page}" class="candidates-list">
-                            <td class="title">
-                                <div class="thumb">
-                                    <img *ngIf="query.userId!= null" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter" class="img-fluid" src="{{query.userId.userImage}}" alt="">
-                                    <img *ngIf="query.nurseryId!= null" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter" class="img-fluid" src="{{query.nurseryId.Image}}" alt="">
-                                    <img *ngIf="query.gardenerId!= null" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter" class="img-fluid" src="{{query.gardenerId.gardenerImage}}" alt="">
-                                </div>
-                                <div class="candidate-list-details">
-                                    <div class="candidate-list-info">
-                                        <div class="candidate-list-title">
-                                            <h5 *ngIf="query.userId!= null" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter" class="mb-0">
-                                                <a>{{query.name}} (User)</a>
-                                            </h5>
-                                            <h5 *ngIf="query.nurseryId!= null" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter" class="mb-0">
-                                                <a>{{query.name}} (Nursery)</a>
-                                            </h5>
-                                            <h5 *ngIf="query.gardenerId!= null" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter" class="mb-0">
-                                                <a>{{query.name}} (Gardener)</a>
-                                            </h5>
-                                        </div>
-                                        <div class="candidate-list-option">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fa fa-mobile" aria-hidden="true"></i> {{query.email}}</li>
-                                                <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{query.createdAt | date}}</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
+        <table class="table table-hover manage-candidates-top mb-0">
+          <thead>
+            <tr>
+              <th style="text-align: center;">Details</th>
+              <th>Query</th>
+              <th>Response/Reject</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let query of queryList | paginate: { itemsPerPage: 6, currentPage: page}"
+              class="candidates-list">
+              <td class="title">
+                <div class="thumb">
+                  <img *ngIf="query.userId!= null" style="cursor: pointer;" data-toggle="modal"
+                    data-target="#exampleModalCenter" class="img-fluid" src="{{query.userId.userImage}}" alt="">
+                  <img *ngIf="query.nurseryId!= null" style="cursor: pointer;" data-toggle="modal"
+                    data-target="#exampleModalCenter" class="img-fluid" src="{{query.nurseryId.Image}}" alt="">
+                  <img *ngIf="query.gardenerId!= null" style="cursor: pointer;" data-toggle="modal"
+                    data-target="#exampleModalCenter" class="img-fluid" src="{{query.gardenerId.gardenerImage}}" alt="">
+                </div>
+                <div class="candidate-list-details">
+                  <div class="candidate-list-info">
+                    <div class="candidate-list-title">
+                      <h5 *ngIf="query.userId!= null" style="cursor: pointer;" data-toggle="modal"
+                        data-target="#exampleModalCenter" class="mb-0">
+                        <a>{{query.name}} (User)</a>
+                      </h5>
+                      <h5 *ngIf="query.nurseryId!= null" style="cursor: pointer;" data-toggle="modal"
+                        data-target="#exampleModalCenter" class="mb-0">
+                        <a>{{query.name}} (Nursery)</a>
+                      </h5>
+                      <h5 *ngIf="query.gardenerId!= null" style="cursor: pointer;" data-toggle="modal"
+                        data-target="#exampleModalCenter" class="mb-0">
+                        <a>{{query.name}} (Gardener)</a>
+                      </h5>
+                    </div>
+                    <div class="candidate-list-option">
+                      <ul class="list-unstyled">
+                        <li><i class="fa fa-mobile" aria-hidden="true"></i> {{query.email}}</li>
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{query.createdAt | date}}</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </td>
 
-                            <td>
-                                <div class="candidate-list-details">
-                                    <div class="candidate-list-info">
-                                        <div class="candidate-list-title">
-                                            <h5 style="cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter" class="mb-0">
-                                                <a>{{query.subject}}</a>
-                                            </h5>
-                                        </div>
-                                        <div class="candidate-list-option">
-                                            <ul class="list-unstyled">
-                                                <li>{{query.message}}</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <a (click)="setEmail(query.email,query._id)" data-toggle="modal" data-target="#exampleModal" style="cursor: pointer;" class="text-success"><i style="font-size: 30px;padding: 15%;"
+              <td>
+                <div class="candidate-list-details">
+                  <div class="candidate-list-info">
+                    <div class="candidate-list-title">
+                      <h5 style="cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter" class="mb-0">
+                        <a>{{query.subject}}</a>
+                      </h5>
+                    </div>
+                    <div class="candidate-list-option">
+                      <ul class="list-unstyled">
+                        <li>{{query.message}}</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <a (click)="setEmail(query.email,query._id)" data-toggle="modal" data-target="#exampleModal"
+                  style="cursor: pointer;" class="text-success"><i style="font-size: 30px;padding: 15%;"
                     class="fa fa-reply" aria-hidden="true"></i>
                 </a>
 
-                                <a (click)="rejectQuery(query._id,query.email)" style="cursor: pointer;" class="text-danger" data-toggle="tooltip" title="" data-original-title="block"><i style="font-size: 30px;"
+                <a (click)="rejectQuery(query._id,query.email)" style="cursor: pointer;" class="text-danger"
+                  data-toggle="tooltip" title="" data-original-title="block"><i style="font-size: 30px;"
                     class="fa fa-times" aria-hidden="true"></i>
                 </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
 
-    <div *ngIf="(queryList.length > 0)" class="row mt-5">
-        <div class="col col-lg-3 col-md-2 col-sm-0"></div>
-        <div class="col col-lg-6 col-md-8 col-sm-12">
-            <pagination-controls (pageChange)="page = $event"></pagination-controls>
-        </div>
-        <div class="col col-lg-3 col-md-2 col-sm-0"></div>
+  <div *ngIf="(queryList.length > 0)" class="row mt-5">
+    <div class="col col-lg-3 col-md-2 col-sm-0"></div>
+    <div class="col col-lg-6 col-md-8 col-sm-12">
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
+    <div class="col col-lg-3 col-md-2 col-sm-0"></div>
+  </div>
 </div>
 
 
@@ -87,35 +96,39 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Send Response</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Send Response</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="">To: </label>
-                    <input [(ngModel)]="sendEmail" readonly="true" type="email" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="">Message:</label>
-                    <textarea [(ngModel)]="message" required ngModel #mess="ngModel" name="message" id="" cols="30" rows="6" class="form-control"></textarea>
-                    <span class="text-danger" *ngIf="mess.errors?.['required'] && mess.touched">Please Enter A Message</span>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
-                <button (click)="sendResponse()" [disabled]="mess.invalid" data-dismiss="modal" type="button" class="btn btn-primary">Send</button>
-            </div>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="">To: </label>
+          <input [(ngModel)]="sendEmail" readonly="true" type="email" class="form-control">
         </div>
+        <div class="form-group">
+          <label for="">Message:</label>
+          <textarea [(ngModel)]="message" required ngModel #mess="ngModel" name="message" id="" cols="30" rows="6"
+            class="form-control"></textarea>
+          <span class="text-danger" *ngIf="mess.errors?.['required'] && mess.touched">Please Enter A Message</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+        <button (click)="sendResponse()" [disabled]="mess.invalid" data-dismiss="modal" type="button"
+          class="btn btn-primary">Send</button>
+      </div>
     </div>
+  </div>
 </div>
 
 
 
 <!-- SPINNER -->
-<ngx-spinner bdColor="white" template="<img src='https://gardendevices.com/wp-content/uploads/2020/09/garden-loader.gif' />"></ngx-spinner>
+<ngx-spinner bdColor="white"
+  template="<img style='width:300px; height:300px' src='../../../../../assets/images/spinner.gif' />"></ngx-spinner>

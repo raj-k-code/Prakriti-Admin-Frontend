@@ -9,32 +9,7 @@
     </div>
 </div> -->
 
-<div class="container p-5">
-  <div class="row align-items-center justify-content-between ">
-    <!-- Contact Thumbnail -->
-    <div class="col-12 col-md-6">
-      <div class="contact--thumbnail">
-        <img src="../../../assets/images/zane-lee-BbXYnYigR0U-unsplash(1).jpg" class="img-fluid" alt="Responsive image">
-      </div>
-    </div>
 
-    <div class="col-12 col-md-6 section-detail">
-      <!-- Section Heading -->
-      <div class="section-heading">
-        <h2>CONTACT US</h2>
-        <p>We are improving our services to serve you better.</p>
-      </div>
-      <!-- Contact Information -->
-      <div class="contact-information">
-        <p><span>Address:</span> 505 Silk Rd, New York</p>
-        <p><span>Phone:</span> +1 234 122 122</p>
-        <p><span>Email:</span> info.deercreative@gmail.com</p>
-        <p><span>Open hours:</span> Mon - Sun: 8 AM to 9 PM</p>
-        <p><span>Happy hours:</span> Sat: 2 PM to 4 PM</p>
-      </div>
-    </div>
-  </div>
-</div>
 <section class="contact-area p-5">
   <div class="container m-auto">
     <div class="row align-items-center justify-content-between">
@@ -62,6 +37,7 @@
                     [(ngModel)]="queryData.email" type="email" class="form-control" id="contact-email"
                     placeholder="Your Email">
                 </div>
+                <!-- ljsafk dsjch  -->
                 <span class="text-danger" *ngIf="Email.errors?.['required'] && Email.touched ">Please Enter
                   Email Address</span>
                 <span class="text-danger" *ngIf="Email.errors?.['pattern'] && Email.touched ">Please Enter
@@ -105,6 +81,33 @@
         </div>
       </div>
     </div>
-
+   
+  </div>
+  <div class="container p-5">
+    <div class="row align-items-center justify-content-between ">
+      <!-- Contact Thumbnail -->
+      <div class="col-12 col-md-6">
+        <div class="contact--thumbnail">
+          <img src="../../../assets/images/zane-lee-BbXYnYigR0U-unsplash(1).jpg" class="img-fluid" alt="Responsive image">
+        </div>
+      </div>
+  
+      <div class="col-12 col-md-6 section-detail">
+        <!-- Section Heading -->
+        <div class="section-heading">
+          <h2>CONTACT US</h2>
+          <p>We are improving our services to serve you better.</p>
+        </div>
+        <!-- Contact Information -->
+        <div class="contact-information">
+          <p><span>Address:</span> 505 Silk Rd, New York</p>
+          <p><span>Phone:</span> +1 234 122 122</p>
+          <p><span>Email:</span> info.deercreative@gmail.com</p>
+          <p><span>Open hours:</span> Mon - Sun: 8 AM to 9 PM</p>
+          <p><span>Happy hours:</span> Sat: 2 PM to 4 PM</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+

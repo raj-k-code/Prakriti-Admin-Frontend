@@ -61,7 +61,7 @@
 }
 
 .user-dashboard-info-box .candidate-list-details ul {
-    color: #969696;
+    color: #494949;
 }
 
 /* Candidate List */
@@ -368,4 +368,7 @@ h6 {
 ngb-rating {
     color: #FFC107;
     font-size: 20px;
+}
+.mtop{
+    margin-top: 10vh;
 }

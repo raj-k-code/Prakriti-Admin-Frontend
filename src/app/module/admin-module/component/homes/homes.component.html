@@ -1,30 +1,30 @@
 <div class="side-menu">
-  <div class="brand-name">
+  <div class="brand-name ">
     <h1><img src="../../../../../assets/images/Group40.png" alt=""></h1>
   </div>
+
   <ul class="menu-list">
-    <li class="cursor-pointer" routerLink="/admin"><img src="../../../../../assets/images/dashboard2.png"
-        alt="">&nbsp;<span>Dashboard</span>
+    <li class="cursor-pointer mt-4 " routerLink="/admin"><img  src="../../../../../assets/images/home-regular-36.png"
+        alt="">&nbsp;<span class="new2">Dashboard</span>
     </li>
-    <li class="cursor-pointer" routerLink="category-list"><img src="../../../../../assets/images/categories.png"
+    <li class="cursor-pointer mt-4 " routerLink="category-list"><img  src="../../../../../assets/images/category.png"
         alt="">&nbsp;
-      <span>Categories</span>
+      <span class="new2">Categories</span>
     </li>
 
-    <li class="cursor-pointer" routerLink="nursery-list"><img src="../../../../../assets/images/nursery.png"
-        alt="">&nbsp;<span>Nuseries</span>
+    <li class="cursor-pointer mt-4 " routerLink="nursery-list"><img  src="../../../../../assets/images/nurserys2.png"
+        alt="">&nbsp;<span class="new2">Nuseries</span>
     </li>
-    <li class="cursor-pointer" routerLink="gardener-list"><img src="../../../../../assets/images/gardener.png"
-        alt="">&nbsp;<span>Gardeners</span>
+    <li class="cursor-pointer mt-4 " routerLink="gardener-list"><img  src="../../../../../assets/images/gardener4.png"
+        alt="">&nbsp;<span class="new2">Gardeners</span>
     </li>
-    <li class="cursor-pointer" routerLink="user-list"><img src="../../../../../assets/images/customer.png"
-        alt="">&nbsp;<span>Users</span>
+    <li class="cursor-pointer mt-4 " routerLink="user-list"><img  src="../../../../../assets/images/customer1.png"
+        alt="">&nbsp;<span class="new2">Users</span>
     </li>
-    <li class="cursor-pointer" routerLink="all-orders"><img src="../../../../../assets/images/orders.png"
-        alt="">&nbsp;<span>Orders</span>
+    <li class="cursor-pointer mt-4 " routerLink="all-orders"><img  src="../../../../../assets/images/order.png"
+        alt="">&nbsp;<span class="new2">Orders</span>
     </li>
-    <li class="cursor-pointer" (click)="signOut()"><img style="width: 40px; height: 40px; filter: invert(1);"
-        src="../../../../../assets/images/exit-regular-24.png" alt="">&nbsp;<span>Sign
+    <li class="cursor-pointer mt-4 " (click)="signOut()"><img src="../../../../../assets/images/exit.png" alt="">&nbsp;<span class="new2">Sign
         Out</span> </li>
   </ul>
 </div>
@@ -32,12 +32,19 @@
 <div class="container1">
   <div class="header">
     <div class="nav">
+      <div class="brand-name">
+        <h1><img src="../../../../../assets/images/Group40.png" alt=""></h1>
+      </div>
       <div class="user">
 
-        <img style="cursor: pointer;" routerLink="query-list" src="../../../assets/images/notifications.png" alt="">
-        <div class="img-case">
-          <img [src]="profileImage" alt="{{defaultImage()}}">
-        </div>
+        <!--
+        <div class="img-case"> -->
+
+        <!-- </div> -->
+        <img style="cursor: pointer; right: 0;" routerLink="query-list" src="../../../assets/images/notifications.png"
+          alt="">
+        <img class="" [src]="profileImage" alt="{{defaultImage()}}">
+
       </div>
     </div>
   </div>
