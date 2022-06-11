@@ -52,8 +52,8 @@
 }
 
 .map-area {
-    position: relative;
-    z-index: 2;
+    /* position: relative; */
+    /* z-index: 2; */
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
 }
 
@@ -72,7 +72,7 @@
 }
 
 .contact-form-area .form-control {
-    position: relative;
+    /* position: relative; */
     z-index: 2;
     height: 45px;
     width: 100%;
@@ -84,8 +84,8 @@
     padding: 15px 20px;
     font-weight: 400;
     color: #b7b7b7;
-    -webkit-transition-duration: 500ms;
-    transition-duration: 500ms;
+    /* -webkit-transition-duration: 500ms;
+    transition-duration: 500ms; */
 }
 
 .contact-form-area .form-control:focus {
