@@ -10,52 +10,52 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   public signIn(admin: Admin) {
-    let signInApi = "https://prakritee.herokuapp.com/admin/signin";
+    let signInApi = "http://localhost:3000/admin/signin";
     return this.http.post<any>(signInApi, { email: admin.email, password: admin.password });
   }
 
   public signinWithGoogle(email: any) {
-    let signinWithGoogleApi = "https://prakritee.herokuapp.com/admin/signin-with-google";
+    let signinWithGoogleApi = "http://localhost:3000/admin/signin-with-google";
     return this.http.post<any>(signinWithGoogleApi, { email: email });
   }
 
   public forgotPassword(email: any) {
-    let signInApi = "https://prakritee.herokuapp.com/admin/forgot-password";
+    let signInApi = "http://localhost:3000/admin/forgot-password";
     return this.http.post<any>(signInApi, { email: email });
   }
 
   public categoryList() {
-    let categoryListApi = "https://prakritee.herokuapp.com/admin/category/category-list";
+    let categoryListApi = "http://localhost:3000/admin/category/category-list";
     return this.http.get<any>(categoryListApi);
   }
 
   public addCategory(category: FormData) {
-    let addCategoryApi = "https://prakritee.herokuapp.com/admin/category/add";
+    let addCategoryApi = "http://localhost:3000/admin/category/add";
     return this.http.post<any>(addCategoryApi, category);
   }
 
   public deleteCategory(categeryId: any) {
-    let deleteCategoryApi = "https://prakritee.herokuapp.com/admin/category/delete";
+    let deleteCategoryApi = "http://localhost:3000/admin/category/delete";
     return this.http.post<any>(deleteCategoryApi, { categeryId: categeryId });
   }
 
   public editCategory(category: FormData) {
-    let editCategoryApi = "https://prakritee.herokuapp.com/admin/category/edit";
+    let editCategoryApi = "http://localhost:3000/admin/category/edit";
     return this.http.post<any>(editCategoryApi, category);
   }
 
   public allOrders(status: any): Observable<any> {
-    let allOrdersApi = "https://prakritee.herokuapp.com/order/latest-order";
+    let allOrdersApi = "http://localhost:3000/order/latest-order";
     return this.http.post<any>(allOrdersApi, { status: status });
   }
 
   public changeStatus(status: any, orderId: any): Observable<any> {
-    let allOrdersApi = "https://prakritee.herokuapp.com/order/change-order";
+    let allOrdersApi = "http://localhost:3000/order/change-order";
     return this.http.post<any>(allOrdersApi, { status: status, orderId: orderId });
   }
 
   public particularOrder(orderId: any) {
-    let particularOrderApi = "https://prakritee.herokuapp.com/order/order-by-id/" + orderId;
+    let particularOrderApi = "http://localhost:3000/order/order-by-id/" + orderId;
     return this.http.get(particularOrderApi);
   }
 }

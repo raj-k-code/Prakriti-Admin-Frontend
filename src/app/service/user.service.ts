@@ -11,17 +11,17 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   public blockUser(id: any) {
-    let blockUserApi = "https://prakritee.herokuapp.com/user/block-user";
+    let blockUserApi = "http://localhost:3000/user/block-user";
     return this.http.post<any>(blockUserApi, { userId: id });
   }
 
   public unBlockUser(id: any) {
-    let unBlockUserApi = "https://prakritee.herokuapp.com/user/unblock-user";
+    let unBlockUserApi = "http://localhost:3000/user/unblock-user";
     return this.http.post<any>(unBlockUserApi, { userId: id });
   }
 
   public userList(): Observable<User[]> {
-    let userListApi = "https://prakritee.herokuapp.com/admin/user/user-list"
+    let userListApi = "http://localhost:3000/admin/user/user-list"
     return this.http.get<User[]>(userListApi);
   }
 
